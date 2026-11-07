@@ -120,10 +120,7 @@ function readTossRedirect(): TossRedirect | null {
 export const tossBootstrap: { redirect: TossRedirect; snapshot: PaymentSnapshot | null } | null = (() => {
   const redirect = readTossRedirect()
   if (!redirect) return null
-  const snapshot = restoreSnapshot()
-  // 디버그: 결제 복귀 시 토스 결과와 스냅샷 복원 여부를 남긴다. (문제 확인용)
-  console.info('[toss] 결제 복귀:', redirect, '· 스냅샷:', snapshot ? '복원됨' : '없음')
-  return { redirect, snapshot }
+  return { redirect, snapshot: restoreSnapshot() }
 })()
 
 // 토스 결과(successUrl/failUrl)로 주문 성공 여부를 판정한다. 결제창에서 성공하면 successUrl,
