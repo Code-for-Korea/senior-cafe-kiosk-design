@@ -1,0 +1,6 @@
+/* 낮은 화면 시안에만 적용: 6개 기능을 한 줄, 아이콘 위·이름 아래로 배치. */
+.low-menu-utility { flex-shrink: 0; }
+.low-menu-utility .utility-study { grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 1.24fr) minmax(0, 1fr); }
+.low-menu-utility .utility-study-button { height: auto; padding: var(--space-sm) 6px; justify-content: flex-start; border-radius: var(--radius-utility); }
+.low-menu-utility .utility-study-check { position: absolute; top: 14px; right: 12px; width: 24px; height: 24px; margin: 0; }
+.low-menu-utility .utility-study-label { align-items: center; white-space: nowrap; }

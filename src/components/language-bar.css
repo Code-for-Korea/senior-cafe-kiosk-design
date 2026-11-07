@@ -1,0 +1,45 @@
+.language-study {
+  flex-shrink: 0;
+  height: 80px;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  background: var(--utility-bg);
+  color: var(--text-primary);
+}
+.language-study--charcoal { background: var(--bg-dark); color: var(--text-on-dark); }
+.language-study button {
+  min-width: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 8px;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.language-study button:active { background: var(--utility-pressed); }
+.language-study--charcoal button:active { background: var(--utility-selected-pressed); color: var(--utility-selected-text); }
+.language-study button:focus-visible { outline: 3px solid currentColor; outline-offset: -6px; border-radius: 8px; }
+.language-study button { border-radius: 9999px; }
+.language-study button:focus-visible { border-radius: 9999px; }
+.language-study--initial { height: auto; padding: 0; gap: 16px; background: transparent; }
+.language-study--initial button { height: 96px; border: 2px solid var(--border-default); background: var(--bg-surface); }
+.language-study--initial button[aria-pressed="true"] { border-color: var(--utility-selected); background: var(--utility-selected); color: var(--utility-selected-text); }
+.language-study--initial button:active { background: var(--utility-pressed); }
+.language-study--initial button[aria-pressed="true"]:active { background: var(--utility-selected-pressed); }
+
+/* 이용방법 화면: 언어는 선택 목록으로, 하단 도구 버튼과 다른 위계로 표시한다. */
+.language-study--text { height: 96px; padding: 0; gap: 16px; background: transparent; }
+.language-study--text button { height: 96px; border: 0; border-radius: 8px; background: transparent; color: var(--text-primary); }
+.language-study--text button:focus-visible { border-radius: 8px; }
+
+.language-trigger:focus-visible, .language-dialog-option:focus-visible {
+  outline: 3px solid var(--text-primary);
+  outline-offset: 3px;
+}
+.language-trigger:active { background: var(--utility-pressed) !important; }

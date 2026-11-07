@@ -1,0 +1,8 @@
+/* 메뉴 목록 상태(MenuListStates). 도는 표시는 Spinner(spinner.css). */
+/* 골격: 회색 자리가 천천히 옅어졌다 돌아온다. 깜빡임처럼 보이지 않게 느리고 얕게. */
+.menu-skeleton-block { display: block; background: var(--bg-disabled); border-radius: 8px; animation: menu-skeleton-pulse 1.6s ease-in-out infinite; }
+@keyframes menu-skeleton-pulse { 50% { opacity: .55; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-skeleton-block { animation: none; }
+}

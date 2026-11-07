@@ -1,0 +1,20 @@
+/* 대기 화면. 사진 위 글자 색은 사진에 맞춘 고정색(밝은 벽 위 진한 갈색, 어두운 아래쪽 흰색)이라 고대비에서도 같다. */
+.attract-screen { position: relative; width: 1080px; height: 1920px; display: flex; flex-direction: column; background: var(--bg-page); }
+.attract-start { position: relative; flex: 1; min-height: 0; padding: 0; border: 0; overflow: hidden; background: #1a1410; color: #fff; font: inherit; cursor: pointer; display: block; text-align: center; }
+.attract-start:focus-visible { outline: 6px solid var(--voice-ring); outline-offset: -6px; }
+.attract-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 38%; }
+.attract-shade { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(16, 12, 10, 0) 56%, rgba(16, 12, 10, .62) 74%, rgba(16, 12, 10, .86) 100%); }
+.attract-copy { position: absolute; top: 150px; left: 64px; right: 64px; display: flex; flex-direction: column; align-items: center; gap: 28px; color: #241810; }
+.attract-headline { font-size: 80px; font-weight: 800; line-height: 1.25; }
+.attract-sub { font-size: 36px; font-weight: 500; color: #463828; }
+.attract-prompt { position: absolute; left: 64px; right: 64px; bottom: 112px; display: flex; flex-direction: column; align-items: center; gap: 28px; }
+.attract-title { font-size: 84px; font-weight: 800; line-height: 1.2; }
+.attract-hint { font-size: 36px; font-weight: 500; color: rgba(255, 255, 255, .9); }
+/* 누름 표시: 가운데 점과 고리, 그 바깥으로 물결이 천천히 퍼진다(2.4초 한 번, 깜빡임 없음). */
+.attract-touch { position: relative; width: 112px; height: 112px; margin-bottom: 8px; }
+.attract-touch b { position: absolute; inset: 0; margin: auto; width: 30px; height: 30px; border-radius: 50%; background: #fff; }
+.attract-touch b::after { content: ""; position: absolute; inset: -26px; border: 5px solid #fff; border-radius: 50%; }
+.attract-touch i { position: absolute; inset: 0; border: 4px solid rgba(255, 255, 255, .85); border-radius: 50%; animation: attract-ripple 2.4s ease-out infinite; }
+.attract-touch i + i { animation-delay: 1.2s; }
+@keyframes attract-ripple { from { transform: scale(.55); opacity: .9; } to { transform: scale(1.6); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .attract-touch i { animation: none; opacity: 0; } }

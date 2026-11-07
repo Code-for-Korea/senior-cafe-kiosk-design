@@ -1,0 +1,32 @@
+.voice-guide-overlay { position:absolute; inset:0; z-index:var(--layer-voice); pointer-events:none; }
+/* 대화상자 안내의 테두리는 대화상자 위에 그린다. */
+.voice-guide-overlay.is-dialog { z-index:var(--layer-voice-dialog); }
+[data-voice-scroll-content] { position:relative; isolation:isolate; }
+/* Rings may reach into the list's padding, so they are not cut at the content edge. */
+.voice-guide-rings { position:absolute; overflow:visible; pointer-events:none; }
+.voice-guide-rings rect { fill:none; stroke:var(--voice-ring); stroke-width:var(--voice-ring-width); }
+.voice-guide-panel { position:absolute; box-sizing:border-box; padding:var(--voice-panel-padding); border-radius:var(--radius-card); border:2px solid var(--voice-bubble-border); color:var(--text-primary); background:var(--voice-bubble-bg); display:flex; flex-direction:row; align-items:center; gap:var(--voice-panel-gap); pointer-events:auto; }
+.voice-guide-slot { position:relative; width:100%; flex-shrink:0; }
+/* 버튼마다 말풍선(ButtonTips). 칸은 버튼 줄과 같게 받는다. */
+.voice-button-tips { display:grid; flex-shrink:0; }
+.voice-button-tips > .voice-guide-slot { width:auto; min-width:0; }
+/* 짧은 이름표(ShortTip). 화살표는 가리키는 쪽에 둔다. */
+.voice-guide-panel.voice-short-tip { position:relative; width:auto; flex:none; padding:12px 24px; }
+.voice-guide-panel.points-left::after { left:-12px; top:calc(50% - 10px); border-width:0 0 2px 2px; }
+.voice-short-tip.points-up { align-self:flex-start; margin-top:16px; }
+.voice-short-tip.points-up::after { left:40px; }
+.voice-guide-message p { white-space:pre-line; }
+.voice-guide-message { flex:1; min-width:0; display:flex; flex-direction:column; gap:var(--space-xs); }
+.voice-warning { position:relative; z-index:var(--layer-voice-warning); flex-shrink:0; display:flex; align-items:flex-start; gap:var(--space-sm); margin:var(--space-sm) var(--space-page); padding:var(--space-md); border:2px solid var(--warning-border); border-radius:var(--radius-card); background:var(--warning-bg); color:var(--warning-text); }
+.voice-warning-icon { flex-shrink:0; margin-top:2px; }
+.voice-warning-copy { flex:1; min-width:0; display:flex; flex-direction:column; gap:var(--space-xs); }
+.voice-warning-close { flex-shrink:0; display:flex; align-items:center; justify-content:center; width:var(--voice-control-size); height:var(--voice-control-size); margin:-12px -12px 0 0; border:0; border-radius:var(--radius-pill); background:transparent; color:inherit; cursor:pointer; }
+.voice-warning-close:active { background:var(--bg-muted); }
+.voice-guide-panel::after { content:""; position:absolute; width:20px; height:20px; left:calc(50% - 10px); background:var(--voice-bubble-bg); transform:rotate(45deg); border:solid var(--voice-bubble-border); }
+.voice-guide-panel.points-down::after { bottom:-12px; border-width:0 2px 2px 0; }
+.voice-guide-panel.points-up::after { top:-12px; border-width:2px 0 0 2px; }
+/* 켤 때 한 번 맨 아래 다시 듣기·음량을 가리키는 말풍선. 기능바 위에 잠깐 겹친다. 글은 한 줄(사용자 2026-10-19). */
+.voice-intro { position:absolute; width:auto; max-width:640px; z-index:var(--layer-voice-intro); pointer-events:none; }
+.voice-intro::after { left:var(--arrow-x); }
+/* 대화상자가 떠 있는 동안 맨 아래 다시 듣기·음량을 같은 자리에 한 벌 더 둔다(뒤 화면은 눌리지 않는 상태라서). */
+.dialog-voice-bar { position:absolute; display:flex; align-items:center; box-sizing:border-box; border-radius:var(--radius-pill); background:var(--bg-surface); z-index:1; }

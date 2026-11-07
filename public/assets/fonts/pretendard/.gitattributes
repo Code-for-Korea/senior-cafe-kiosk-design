@@ -1,0 +1,2 @@
+# Bundle this small licensed preview font directly for static hosting.
+*.woff2 -filter -diff -merge -text

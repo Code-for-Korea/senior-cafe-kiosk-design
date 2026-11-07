@@ -1,0 +1,4 @@
+/* 선택 카드 높이와 안쪽 여백은 기본 배치와 같은 공통 컴포넌트를 따른다. */
+/* 제목과 카드는 32px(부모 gap 20 + 위 12)로 묶고, 남는 높이는 카드 아래에 둔다. */
+.low-options-choices { margin: var(--space-compact) 0 auto; flex-shrink: 0; }
+.low-options-choices [data-selection-appearance] { min-width: 0; }

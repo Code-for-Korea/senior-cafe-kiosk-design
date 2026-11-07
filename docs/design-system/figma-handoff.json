@@ -1,0 +1,4322 @@
+{
+  "schemaVersion": 1,
+  "status": "Code inventory synchronized with the existing Figma library; see figma-migration-status.json and the latest approved-sync handoff for verified node mappings and prototype scope.",
+  "presentationGroups": [
+    "기본모드",
+    "낮은 화면",
+    "고대비모드",
+    "음성안내",
+    "직원부르기 안내"
+  ],
+  "axes": {
+    "layout": [
+      "normal",
+      "low"
+    ],
+    "color": [
+      "light",
+      "highContrast"
+    ],
+    "text": [
+      "normal",
+      "large"
+    ],
+    "voice": [
+      "off",
+      "guiding",
+      "hidden",
+      "playbackWarning"
+    ],
+    "staff": [
+      "closed",
+      "confirm",
+      "waiting",
+      "cancel"
+    ]
+  },
+  "components": [
+    {
+      "name": "Action/Button",
+      "source": "src/components/Button.tsx",
+      "properties": [
+        "variant",
+        "size",
+        "purpose=decision|support",
+        "disabled",
+        "subtitle",
+        "trailing",
+        "children"
+      ]
+    },
+    {
+      "name": "Action/StepNavigation",
+      "source": "src/components/StepNavigation.tsx",
+      "properties": [
+        "purpose=decision|support",
+        "layout=normal|low",
+        "previous (optional)",
+        "next.enabled",
+        "next.label",
+        "secondaryAction (optional)"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "536:1201",
+        "status": "basic-option-steps-integrated; representative-playback-passed; full-flow-pending"
+      }
+    },
+    {
+      "name": "Action/ItemOrderButtons",
+      "source": "src/components/ItemOrderButtons.tsx",
+      "properties": [
+        "appearance=standard|lowReview",
+        "lowScreen",
+        "canAdd",
+        "primary"
+      ]
+    },
+    {
+      "name": "Action/ItemOrderControls",
+      "source": "src/components/ItemOrderControls.tsx",
+      "properties": [
+        "quantity",
+        "unitPrice",
+        "canAdd",
+        "lowScreen"
+      ]
+    },
+    {
+      "name": "Selection/Card",
+      "source": "src/components/SelectionCard.tsx",
+      "properties": [
+        "selected",
+        "original",
+        "disabled",
+        "accent",
+        "appearance",
+        "reserveCheckSpace"
+      ]
+    },
+    {
+      "name": "Selection/OptionChoice",
+      "source": "src/components/OptionChoiceCard.tsx",
+      "properties": [
+        "choice",
+        "selected",
+        "original",
+        "disabled",
+        "showOriginalSlot"
+      ]
+    },
+    {
+      "name": "Selection/FilterChip",
+      "source": "src/components/FilterChip.tsx",
+      "properties": [
+        "kind",
+        "selected",
+        "accent",
+        "height"
+      ]
+    },
+    {
+      "name": "Selection/Quantity",
+      "source": "src/components/QuantityStepper.tsx",
+      "properties": [
+        "value",
+        "min",
+        "max",
+        "showUnit",
+        "disabled"
+      ]
+    },
+    {
+      "name": "Navigation/OrderProgress",
+      "source": "src/components/ProgressStep.tsx",
+      "properties": [
+        "current=1..5"
+      ]
+    },
+    {
+      "name": "Navigation/OptionStepper",
+      "source": "src/components/OptionStepper.tsx",
+      "properties": [
+        "rows",
+        "currentContent"
+      ]
+    },
+    {
+      "name": "Navigation/UtilityBar",
+      "source": "src/components/GroupedUtilityBar.tsx",
+      "properties": [
+        "lowScreen",
+        "controls"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1712:39833",
+        "variants": "LowScreen=false|true × Locked=false|true"
+      }
+    },
+    {
+      "name": "Navigation/LanguageVolumeFooter",
+      "source": "src/components/AuxiliaryBar.tsx",
+      "properties": [
+        "language (LanguageTrigger)",
+        "replay + volume (only while voice guide is on; Figma BOOLEAN \"Voice on\" → Voice/Controls)"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "964:2639"
+      }
+    },
+    {
+      "name": "Navigation/CurrentLanguageFlag",
+      "source": "src/components/LanguageTrigger.tsx",
+      "export": "LanguageFlag",
+      "properties": [
+        "language"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1058:205"
+      }
+    },
+    {
+      "name": "Layout/LowHeader",
+      "source": "src/components/LowScreenHeader.tsx",
+      "properties": [
+        "current",
+        "description",
+        "descriptionTone"
+      ]
+    },
+    {
+      "name": "Layout/OptionScreen",
+      "source": "src/components/KioskLayout.tsx",
+      "properties": [
+        "stepsAfterQuestion",
+        "isEditMode",
+        "nextEnabled",
+        "steps"
+      ]
+    },
+    {
+      "name": "Feedback/ScrollShade",
+      "source": "src/components/ScrollBottomShade.tsx",
+      "properties": [
+        "moreBelow (derived from viewport)"
+      ]
+    },
+    {
+      "name": "Feedback/ColdOnlyNotice",
+      "source": "src/components/ColdOnlyNotice.tsx",
+      "properties": [
+        "item"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1731:46787"
+      }
+    },
+    {
+      "name": "Feedback/Spinner",
+      "source": "src/components/Spinner.tsx",
+      "properties": [
+        "small"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1906:39115",
+        "variants": "Size=normal|small"
+      }
+    },
+    {
+      "name": "Feedback/SoldOutMark",
+      "source": "src/components/MenuCard.tsx",
+      "export": "SoldOutMark",
+      "properties": [
+        "small"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1898:5746",
+        "variants": "Size=normal|small"
+      }
+    },
+    {
+      "name": "Feedback/LoadingNotice",
+      "source": "src/components/MenuListStates.tsx",
+      "export": "MenuLoadingNotice",
+      "properties": [],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1906:39116"
+      }
+    },
+    {
+      "name": "Feedback/TouchMark",
+      "source": "src/screens/AttractScreen.tsx",
+      "properties": [
+        "(attract.css .attract-touch)"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1906:39122"
+      }
+    },
+    {
+      "name": "Menu/Card",
+      "source": "src/components/MenuCard.tsx",
+      "properties": [
+        "item",
+        "temperature",
+        "selected"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1899:6415",
+        "variants": "Sold out=false|true"
+      }
+    },
+    {
+      "name": "Menu/LowCard",
+      "source": "src/components/LowMenuCard.tsx",
+      "properties": [
+        "item",
+        "temperature"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1899:6913",
+        "variants": "Sold out=false|true"
+      }
+    },
+    {
+      "name": "Menu/SkeletonCard",
+      "source": "src/components/MenuListStates.tsx",
+      "export": "MenuSkeletonCards",
+      "properties": [
+        "count",
+        "low"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1907:5777"
+      }
+    },
+    {
+      "name": "Menu/SkeletonChips",
+      "source": "src/components/MenuListStates.tsx",
+      "export": "MenuSkeletonChips",
+      "properties": [
+        "height"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1907:5785"
+      }
+    },
+    {
+      "name": "Menu/ListState",
+      "source": "src/components/MenuListStates.tsx",
+      "export": "MenuLoadFailed",
+      "properties": [
+        "state=loading|failed|empty (MenuScreen)",
+        "onRetry",
+        "onShowAll (MenuEmpty)"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1907:5856",
+        "variants": "State=Loading|Failed|Empty"
+      }
+    },
+    {
+      "name": "Product/TemperatureBadge",
+      "source": "src/components/MenuTemperatureLabel.tsx",
+      "properties": [
+        "temp=hot|cold"
+      ]
+    },
+    {
+      "name": "Product/Information",
+      "source": "src/components/ProductInformation.tsx",
+      "properties": [
+        "compact (음성 안내 켬)"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1953:5919",
+        "variants": "Compact=false|true"
+      }
+    },
+    {
+      "name": "Product/Nutrition",
+      "source": "src/components/NutritionMetrics.tsx",
+      "properties": []
+    },
+    {
+      "name": "Search/Panel",
+      "source": "src/components/SearchPanel.tsx",
+      "properties": [
+        "items",
+        "startText",
+        "startSelectedId"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "929:1531",
+        "variants": "State=Empty|Unselected|Selected"
+      }
+    },
+    {
+      "name": "Dialog/Frame",
+      "source": "src/components/ConfirmDialog.tsx",
+      "export": "DialogFrame",
+      "properties": [
+        "title",
+        "message",
+        "width",
+        "lowScreen",
+        "children"
+      ]
+    },
+    {
+      "name": "Dialog/Confirm",
+      "source": "src/components/ConfirmDialog.tsx",
+      "properties": [
+        "destructive",
+        "cancelLabel",
+        "confirmLabel"
+      ]
+    },
+    {
+      "name": "Dialog/AddedNotice",
+      "source": "src/components/AddedNotice.tsx",
+      "properties": [
+        "title",
+        "detail",
+        "onClose (3초 뒤 저절로, 누르면 바로)"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1934:6048"
+      }
+    },
+    {
+      "name": "Dialog/ProductInfo",
+      "source": "src/components/ProductInfoDialog.tsx",
+      "properties": [],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1744:6377"
+      }
+    },
+    {
+      "name": "Dialog/CartOption",
+      "source": "src/components/CartOptionDialog.tsx",
+      "properties": [
+        "item",
+        "option (optional initial step)",
+        "lowScreen",
+        "draft list ↔ choice",
+        "HOT → COLD → ice",
+        "onApply (atomic)",
+        "onCancel (discard)"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1726:8169",
+        "variants": "Step=list|temperature|size|caffeine|ice|cancel|merge"
+      }
+    },
+    {
+      "name": "Dialog/PaymentDetails",
+      "source": "src/components/PaymentDetailsDialog.tsx",
+      "properties": [],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1732:6323"
+      }
+    },
+    {
+      "name": "Dialog/StaffCall",
+      "source": "src/components/SessionDialogs.tsx",
+      "export": "StaffCallDialog",
+      "properties": [
+        "called",
+        "late"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1738:6381",
+        "variants": "State=Request|Waiting|Late"
+      }
+    },
+    {
+      "name": "Dialog/IdleWarning",
+      "source": "src/components/SessionDialogs.tsx",
+      "export": "IdleWarningDialog",
+      "properties": [
+        "remaining",
+        "staffCalled"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1901:6355",
+        "variants": "Staff called=false|true"
+      }
+    },
+    {
+      "name": "Dialog/OrderMethod",
+      "source": "src/components/OrderMethodDialog.tsx",
+      "properties": [
+        "value",
+        "lowScreen",
+        "onApply",
+        "onCancel"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1055:1660"
+      }
+    },
+    {
+      "name": "Dialog/Language",
+      "source": "src/components/LanguageDialog.tsx",
+      "properties": [
+        "value",
+        "lowScreen",
+        "onApply",
+        "onCancel"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1055:1745"
+      }
+    },
+    {
+      "name": "Payment/MethodChoice",
+      "source": "src/payment/PaymentMethodChoice.tsx",
+      "properties": [
+        "method",
+        "lowScreen",
+        "active",
+        "disabled",
+        "unavailable"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "38:692",
+        "variants": "Active=false|true × Unavailable=false|true"
+      }
+    },
+    {
+      "name": "Payment/Amount",
+      "source": "src/payment/PaymentAmount.tsx",
+      "export": "PaymentAmount",
+      "properties": [
+        "label",
+        "amount"
+      ]
+    },
+    {
+      "name": "Payment/MoneySummary",
+      "source": "src/payment/PaymentAmount.tsx",
+      "export": "PaymentMoneySummary",
+      "properties": [
+        "rows",
+        "focusedLabel"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1726:43632",
+        "variants": "Kind=total|deposited|remaining|change|changeOut|changeOwed|returned|returnOwed|zero (row value only)"
+      }
+    },
+    {
+      "name": "Payment/Illustration",
+      "source": "src/payment/PaymentIllustration.tsx",
+      "properties": [
+        "kind",
+        "lowScreen",
+        "insertion"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1726:43633",
+        "variants": "Kind × Insertion"
+      }
+    },
+    {
+      "name": "Payment/CodeHelp",
+      "source": "src/payment/MobilePaymentHelpDialog.tsx",
+      "properties": [
+        "initialApp",
+        "lowScreen"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1746:6480",
+        "variants": "App=None|Naver|Kakao|Toss"
+      }
+    },
+    {
+      "name": "Payment/OrderNumberHero",
+      "source": "src/screens/PaymentFlowScreen.tsx",
+      "properties": [
+        "orderNumber"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1913:39841"
+      }
+    },
+    {
+      "name": "Payment/AutoNext",
+      "source": "src/screens/PaymentFlowScreen.tsx",
+      "properties": [
+        "seconds (useCountdown)",
+        "text"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1913:39842"
+      }
+    },
+    {
+      "name": "Voice/Highlight",
+      "source": "src/voice/VoiceOverlay.tsx",
+      "properties": [
+        "guide",
+        "speakingTarget",
+        "hidden",
+        "status"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1939:5737",
+        "component": "Voice/Ring"
+      }
+    },
+    {
+      "name": "Voice/Bubble",
+      "source": "src/voice/ButtonTips.tsx",
+      "properties": [
+        "ButtonTip (ButtonTips.tsx)",
+        "Intro (VoiceIntro.tsx)",
+        "LabelLeft · LabelUp (ShortTip.tsx)"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1939:5758",
+        "variants": "Type=ButtonTip|Intro|LabelLeft|LabelUp"
+      }
+    },
+    {
+      "name": "Voice/Controls",
+      "source": "src/components/VoiceBarControls.tsx",
+      "export": "VoiceBarControls",
+      "properties": [
+        "replay",
+        "volume"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1945:40699"
+      }
+    },
+    {
+      "name": "Voice/DialogBar",
+      "source": "src/components/VoiceBarControls.tsx",
+      "export": "DialogVoiceBar",
+      "properties": [],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1945:40703"
+      }
+    },
+    {
+      "name": "Voice/Warning",
+      "source": "src/voice/VoiceWarning.tsx",
+      "properties": [
+        "visibility (VoiceGuideProvider)"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1942:5735"
+      }
+    },
+    {
+      "name": "Icon",
+      "source": "src/components/Icon.tsx",
+      "properties": [
+        "name",
+        "size",
+        "color",
+        "optical"
+      ]
+    },
+    {
+      "name": "Cart/ItemOptions",
+      "source": "src/components/CartItemOptions.tsx",
+      "properties": [
+        "item",
+        "onEdit",
+        "disabled"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "636:926"
+      }
+    },
+    {
+      "name": "Cart/ItemCard",
+      "source": "src/components/CartItemCard.tsx",
+      "properties": [
+        "item",
+        "onEdit",
+        "onChangeQuantity",
+        "onRemove",
+        "deleteMode",
+        "checked",
+        "savedChanges"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "639:964"
+      }
+    },
+    {
+      "name": "Cart/Empty",
+      "source": "src/components/CartEmpty.tsx",
+      "properties": [
+        "onShowMenu"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1908:5817"
+      }
+    },
+    {
+      "name": "Cart/SoldOutBox",
+      "source": "src/components/CartSoldOutBox.tsx",
+      "properties": [
+        "items",
+        "onRemove"
+      ],
+      "figma": {
+        "fileKey": "CoEH6OGEUuTMQ2HRGR3B03",
+        "nodeId": "1908:5857",
+        "variants": "row = Cart/SoldOutItem 1908:5843"
+      }
+    }
+  ],
+  "orderScreens": [
+    "method",
+    "menu",
+    "product",
+    "temperature",
+    "size",
+    "caffeine",
+    "ice",
+    "review",
+    "cart"
+  ],
+  "flowSources": {
+    "order": [
+      "src/App.tsx",
+      "src/orderEntry.ts",
+      "src/orderDefaults.ts",
+      "src/selectionSummary.ts"
+    ],
+    "payment": [
+      "src/payment/paymentFlow.ts",
+      "src/payment/paymentSession.ts"
+    ],
+    "voice": [
+      "src/voice/guides.ts",
+      "src/voice/VoiceGuideProvider.tsx",
+      "src/voice/warning.ts"
+    ],
+    "staff": [
+      "src/staffCall.ts",
+      "src/components/SessionDialogs.tsx",
+      "src/inactivityTimer.ts"
+    ]
+  },
+  "excludedReferences": [],
+  "tokens": {
+    "space": {
+      "micro": 4,
+      "xs": 8,
+      "compact": 12,
+      "sm": 16,
+      "md": 24,
+      "lg": 32,
+      "xl": 48,
+      "page": 64
+    },
+    "radius": {
+      "card": "20px",
+      "btn": "20px",
+      "dialogButton": "9999px",
+      "badge": "50%",
+      "pill": "9999px",
+      "utility": "12px",
+      "amount": "12px",
+      "quantity": "16px",
+      "dialog": "28px",
+      "highlight": "24px",
+      "deviceSlot": "12px"
+    },
+    "font": {
+      "family": "'Noto Sans KR', sans-serif",
+      "figmaFamily": "'Pretendard Variable', sans-serif",
+      "bold": 700,
+      "semibold": 600,
+      "medium": 500,
+      "regular": 400
+    },
+    "typography": {
+      "normal": {
+        "title": {
+          "fontSize": 48,
+          "fontWeight": 700
+        },
+        "primary": {
+          "fontSize": 36,
+          "fontWeight": 600
+        },
+        "body": {
+          "fontSize": 32,
+          "fontWeight": 500
+        },
+        "info": {
+          "fontSize": 32,
+          "fontWeight": 500
+        },
+        "caption": {
+          "fontSize": 28,
+          "fontWeight": 500
+        }
+      },
+      "large": {
+        "title": {
+          "fontSize": 48,
+          "fontWeight": 700
+        },
+        "primary": {
+          "fontSize": 38,
+          "fontWeight": 600
+        },
+        "body": {
+          "fontSize": 32,
+          "fontWeight": 500
+        },
+        "info": {
+          "fontSize": 38,
+          "fontWeight": 500
+        },
+        "caption": {
+          "fontSize": 32,
+          "fontWeight": 500
+        }
+      },
+      "figma": {
+        "title": {
+          "fontSize": 50,
+          "fontWeight": 700
+        },
+        "primary": {
+          "fontSize": 40,
+          "fontWeight": 600
+        },
+        "body": {
+          "fontSize": 32,
+          "fontWeight": 500
+        },
+        "info": {
+          "fontSize": 40,
+          "fontWeight": 500
+        },
+        "caption": {
+          "fontSize": 32,
+          "fontWeight": 500
+        }
+      },
+      "lineHeight": {
+        "normal": 1.4,
+        "figma": 1.4,
+        "control": 1.2
+      },
+      "titleTracking": "-0.02em",
+      "controlTracking": "-0.02em",
+      "bodyButtonSize": 36,
+      "navigationSize": 32,
+      "smallNavigationSize": 28,
+      "largeReadableSize": 36
+    },
+    "layout": {
+      "width": 1080,
+      "height": 1920,
+      "pageInset": 64,
+      "progressTop": 72,
+      "lowHeaderHeight": 640,
+      "lowHeaderGap": 32,
+      "lowHeaderCopyBottom": 60,
+      "lowHeaderBottom": 80
+    },
+    "button": {
+      "large": {
+        "height": 128,
+        "minWidth": 200,
+        "paddingX": 32
+      },
+      "small": {
+        "height": 72,
+        "minWidth": 96,
+        "paddingX": 24
+      },
+      "contentGap": 12,
+      "order": {
+        "normalHeight": 128,
+        "lowHeight": 104,
+        "normalBackWidth": 280,
+        "lowBackWidth": 320,
+        "addMinWidth": 360
+      }
+    },
+    "selection": {
+      "defaultHeight": 580,
+      "border": 2,
+      "selectedBorder": 3,
+      "balancedPaddingY": 48,
+      "balancedPaddingX": 24,
+      "originalSlotPaddingBottom": 28,
+      "paddingTop": 40,
+      "paddingX": 20,
+      "paddingBottom": 32,
+      "checkToIllustration": 8,
+      "illustrationGap": 20,
+      "originalChipGap": 8,
+      "checkSize": 48,
+      "checkInset": 20,
+      "originalRightInset": 80,
+      "optionIllustrationSize": 156,
+      "caffeineIllustrationSize": 128
+    },
+    "progress": {
+      "height": 80,
+      "chevronDepth": 24,
+      "gap": 3,
+      "firstInset": 16,
+      "insetLeft": 32,
+      "insetRight": 24,
+      "spaceBelow": 56
+    },
+    "quantity": {
+      "height": 72,
+      "border": 2,
+      "valueMinWidth": 96,
+      "valuePaddingX": 12
+    },
+    "scroll": {
+      "shadeHeight": 96,
+      "endTolerance": 2,
+      "menuShadeHeight": 144
+    },
+    "dialog": {
+      "width": 820,
+      "padding": 48,
+      "sessionWidth": 900
+    },
+    "voice": {
+      "radius": 24,
+      "controlSize": 72,
+      "controlsWidth": 152,
+      "controlGap": 8,
+      "panelPadding": 24,
+      "panelGap": 24,
+      "ringWidth": 8,
+      "ringGap": 12
+    },
+    "payment": {
+      "amountHeight": 120,
+      "lowAmountHeight": 104,
+      "amountPaddingY": 20,
+      "amountPaddingX": 32,
+      "moneyRowHeight": 80,
+      "spinnerSize": 96,
+      "spinnerBorder": 8
+    },
+    "utility": {
+      "padding": 24,
+      "gap": 12,
+      "normalHeight": 184,
+      "horizontalHeight": 112,
+      "compactHeight": 128,
+      "buttonPaddingX": 6
+    },
+    "opacity": {
+      "scrollShade": 0.5,
+      "menuPress": 0.6
+    },
+    "layer": {
+      "scrollShade": 1,
+      "voice": 200,
+      "voiceWarning": 201,
+      "voiceIntro": 205,
+      "voiceDialog": 225,
+      "dialog": 220,
+      "search": 2
+    },
+    "shadow": {
+      "voicePanel": "0 8px 24px rgba(0,0,0,.12)",
+      "actionBar": "0 -8px 24px rgba(0,0,0,.055)",
+      "actionBarHighContrast": "0 -8px 24px rgba(255,255,255,.08)"
+    },
+    "motion": {
+      "selection": "0.15s",
+      "menuPress": 300,
+      "paymentSpinner": "1.1s"
+    },
+    "badge": {
+      "normal": {
+        "height": 46,
+        "icon": 26
+      },
+      "large": {
+        "height": 56,
+        "icon": 32
+      },
+      "padding": "0 14px 0 10px",
+      "iconGap": 6
+    },
+    "filter": {
+      "tabHeight": 88,
+      "chipHeight": 76,
+      "chipPaddingX": 24,
+      "border": 1,
+      "selectedBorder": 3
+    },
+    "optionStep": {
+      "circle": 56,
+      "summaryRowHeight": 104,
+      "afterNavigationGap": 48,
+      "rowGap": 20,
+      "currentGap": 32,
+      "columnGap": 40,
+      "choicesToNavigationGap": 32
+    },
+    "menuCard": {
+      "photoHeight": 444,
+      "photoRadius": 8,
+      "radius": 24,
+      "lowPhotoWidth": 160,
+      "lowPhotoGap": 24,
+      "lowRadius": "0 24px 24px 0",
+      "imageBackground": "#F6F6F6"
+    },
+    "paymentMethod": {
+      "iconSize": 150,
+      "lowIconSize": 100,
+      "height": 336,
+      "lowHeight": 280,
+      "radius": 12,
+      "checkSize": 36,
+      "checkMarkSize": 20,
+      "checkInset": 16
+    }
+  },
+  "colors": {
+    "primitives": {
+      "Color": {
+        "Gray": {
+          "0": {
+            "$type": "color",
+            "$value": "#FFFFFF"
+          },
+          "5": {
+            "$type": "color",
+            "$value": "#F6F6F6"
+          },
+          "10": {
+            "$type": "color",
+            "$value": "#E7E7E7"
+          },
+          "20": {
+            "$type": "color",
+            "$value": "#D1D1D1"
+          },
+          "30": {
+            "$type": "color",
+            "$value": "#B0B0B0"
+          },
+          "40": {
+            "$type": "color",
+            "$value": "#888888"
+          },
+          "50": {
+            "$type": "color",
+            "$value": "#6F6F6F"
+          },
+          "60": {
+            "$type": "color",
+            "$value": "#5D5D5D"
+          },
+          "70": {
+            "$type": "color",
+            "$value": "#4F4F4F"
+          },
+          "80": {
+            "$type": "color",
+            "$value": "#454545"
+          },
+          "90": {
+            "$type": "color",
+            "$value": "#3D3D3D"
+          },
+          "95": {
+            "$type": "color",
+            "$value": "#262626"
+          },
+          "100": {
+            "$type": "color",
+            "$value": "#000000"
+          }
+        },
+        "Light": {
+          "primary": {
+            "5": {
+              "$type": "color",
+              "$value": "#FEF4E3"
+            },
+            "10": {
+              "$type": "color",
+              "$value": "#F7EAD1"
+            },
+            "20": {
+              "$type": "color",
+              "$value": "#EAD5AE"
+            },
+            "30": {
+              "$type": "color",
+              "$value": "#D8B981"
+            },
+            "40": {
+              "$type": "color",
+              "$value": "#C39F58"
+            },
+            "50": {
+              "$type": "color",
+              "$value": "#C5A059"
+            },
+            "60": {
+              "$type": "color",
+              "$value": "#8B703C"
+            },
+            "70": {
+              "$type": "color",
+              "$value": "#705A30"
+            },
+            "80": {
+              "$type": "color",
+              "$value": "#594827"
+            },
+            "90": {
+              "$type": "color",
+              "$value": "#42361F"
+            },
+            "95": {
+              "$type": "color",
+              "$value": "#231916"
+            }
+          },
+          "secondary": {
+            "5": {
+              "$type": "color",
+              "$value": "#FEF2F0"
+            },
+            "10": {
+              "$type": "color",
+              "$value": "#FFE4E0"
+            },
+            "20": {
+              "$type": "color",
+              "$value": "#FFC8C1"
+            },
+            "30": {
+              "$type": "color",
+              "$value": "#FFA195"
+            },
+            "40": {
+              "$type": "color",
+              "$value": "#FF7265"
+            },
+            "50": {
+              "$type": "color",
+              "$value": "#F53F37"
+            },
+            "60": {
+              "$type": "color",
+              "$value": "#E60013"
+            },
+            "70": {
+              "$type": "color",
+              "$value": "#B1070F"
+            },
+            "80": {
+              "$type": "color",
+              "$value": "#8B1312"
+            },
+            "90": {
+              "$type": "color",
+              "$value": "#651814"
+            },
+            "95": {
+              "$type": "color",
+              "$value": "#3C1713"
+            }
+          },
+          "positive": {
+            "5": {
+              "$type": "color",
+              "$value": "#EBFAEE"
+            },
+            "10": {
+              "$type": "color",
+              "$value": "#D3F5DB"
+            },
+            "20": {
+              "$type": "color",
+              "$value": "#A8E9B9"
+            },
+            "30": {
+              "$type": "color",
+              "$value": "#7BD997"
+            },
+            "40": {
+              "$type": "color",
+              "$value": "#49C270"
+            },
+            "50": {
+              "$type": "color",
+              "$value": "#28A154"
+            },
+            "60": {
+              "$type": "color",
+              "$value": "#1F8243"
+            },
+            "70": {
+              "$type": "color",
+              "$value": "#176334"
+            },
+            "80": {
+              "$type": "color",
+              "$value": "#124F2A"
+            },
+            "90": {
+              "$type": "color",
+              "$value": "#0D3B20"
+            },
+            "95": {
+              "$type": "color",
+              "$value": "#082916"
+            }
+          },
+          "negative": {
+            "5": {
+              "$type": "color",
+              "$value": "#FEF2F3"
+            },
+            "10": {
+              "$type": "color",
+              "$value": "#FFE3E6"
+            },
+            "20": {
+              "$type": "color",
+              "$value": "#FEC7CC"
+            },
+            "30": {
+              "$type": "color",
+              "$value": "#FAA1AB"
+            },
+            "40": {
+              "$type": "color",
+              "$value": "#EB7F8E"
+            },
+            "50": {
+              "$type": "color",
+              "$value": "#D95D73"
+            },
+            "60": {
+              "$type": "color",
+              "$value": "#C63858"
+            },
+            "70": {
+              "$type": "color",
+              "$value": "#AB1241"
+            },
+            "80": {
+              "$type": "color",
+              "$value": "#871735"
+            },
+            "90": {
+              "$type": "color",
+              "$value": "#621A2A"
+            },
+            "95": {
+              "$type": "color",
+              "$value": "#371A1E"
+            }
+          }
+        },
+        "HC": {
+          "primary": {
+            "5": {
+              "$type": "color",
+              "$value": "#FEFDE8"
+            },
+            "10": {
+              "$type": "color",
+              "$value": "#FDFBC4"
+            },
+            "20": {
+              "$type": "color",
+              "$value": "#FDF58B"
+            },
+            "30": {
+              "$type": "color",
+              "$value": "#FBE949"
+            },
+            "40": {
+              "$type": "color",
+              "$value": "#F8DA29"
+            },
+            "50": {
+              "$type": "color",
+              "$value": "#E7BE0B"
+            },
+            "60": {
+              "$type": "color",
+              "$value": "#C89406"
+            },
+            "70": {
+              "$type": "color",
+              "$value": "#9F6A09"
+            },
+            "80": {
+              "$type": "color",
+              "$value": "#84540F"
+            },
+            "90": {
+              "$type": "color",
+              "$value": "#704413"
+            },
+            "95": {
+              "$type": "color",
+              "$value": "#412307"
+            }
+          },
+          "positive": {
+            "5": {
+              "$type": "color",
+              "$value": "#E5FFEA"
+            },
+            "10": {
+              "$type": "color",
+              "$value": "#B2FFBF"
+            },
+            "20": {
+              "$type": "color",
+              "$value": "#80FF95"
+            },
+            "30": {
+              "$type": "color",
+              "$value": "#44F862"
+            },
+            "40": {
+              "$type": "color",
+              "$value": "#00E326"
+            },
+            "50": {
+              "$type": "color",
+              "$value": "#00B21E"
+            },
+            "60": {
+              "$type": "color",
+              "$value": "#009919"
+            },
+            "70": {
+              "$type": "color",
+              "$value": "#008015"
+            },
+            "80": {
+              "$type": "color",
+              "$value": "#006611"
+            },
+            "90": {
+              "$type": "color",
+              "$value": "#004D0D"
+            },
+            "95": {
+              "$type": "color",
+              "$value": "#003308"
+            }
+          },
+          "negative": {
+            "5": {
+              "$type": "color",
+              "$value": "#FFF5F5"
+            },
+            "10": {
+              "$type": "color",
+              "$value": "#FFE3E3"
+            },
+            "20": {
+              "$type": "color",
+              "$value": "#FFC9C9"
+            },
+            "30": {
+              "$type": "color",
+              "$value": "#FFA8A8"
+            },
+            "40": {
+              "$type": "color",
+              "$value": "#FF8787"
+            },
+            "50": {
+              "$type": "color",
+              "$value": "#FF6B6B"
+            },
+            "60": {
+              "$type": "color",
+              "$value": "#FA5252"
+            },
+            "70": {
+              "$type": "color",
+              "$value": "#F03E3E"
+            },
+            "80": {
+              "$type": "color",
+              "$value": "#B91C1C"
+            },
+            "90": {
+              "$type": "color",
+              "$value": "#7F1D1D"
+            },
+            "95": {
+              "$type": "color",
+              "$value": "#450A0A"
+            }
+          }
+        }
+      }
+    },
+    "modes": {
+      "light": {
+        "bg-page": "#FFFFFF",
+        "bg-surface": "#FFFFFF",
+        "bg-muted": "#F6F6F6",
+        "scroll-shadow": "rgba(0, 0, 0, 0.22)",
+        "bg-disabled": "#E7E7E7",
+        "bg-brand-tint": "#FEF4E3",
+        "bg-dark": "#000000",
+        "text-primary": "#000000",
+        "text-secondary": "#6F6F6F",
+        "text-disabled": "#5D5D5D",
+        "text-on-dark": "#FFFFFF",
+        "text-brand-on-dark": "#C5A059",
+        "text-brand": "#8B703C",
+        "icon-brand": "#C5A059",
+        "icon-neutral": "#6F6F6F",
+        "border-default": "#D1D1D1",
+        "border-subtle": "#D1D1D1",
+        "border-brand": "#EAD5AE",
+        "accent": "#E60013",
+        "accent-hover": "#FF7265",
+        "accent-pressed": "#B1070F",
+        "accent-text": "#B1070F",
+        "text-on-accent": "#FFFFFF",
+        "action-neutral": "#3D3D3D",
+        "text-on-neutral": "#FFFFFF",
+        "state-current": "#C5A059",
+        "text-on-current": "#000000",
+        "progress-current": "#D8B981",
+        "progress-completed": "#FEF4E3",
+        "progress-other": "transparent",
+        "state-selected": "#FEF2F0",
+        "state-selected-border": "#E60013",
+        "state-selected-text": "#B1070F",
+        "filter-selected-border": "#FFA195",
+        "option-selected": "#FEF4E3",
+        "option-selected-border": "#705A30",
+        "option-selected-secondary": "#5D5D5D",
+        "option-check": "#FFFFFF",
+        "option-original-bg": "#EAD5AE",
+        "option-original-text": "#594827",
+        "step-done": "#F7EAD1",
+        "step-done-text": "#5D5D5D",
+        "step-done-mark": "#705A30",
+        "step-upcoming": "#F6F6F6",
+        "utility-bg": "#E7E7E7",
+        "utility-surface": "#F6F6F6",
+        "utility-selected": "#000000",
+        "utility-selected-text": "#FFFFFF",
+        "utility-pending": "#D1D1D1",
+        "utility-pending-text": "#4F4F4F",
+        "utility-pending-pressed": "#D1D1D1",
+        "utility-pressed": "#D1D1D1",
+        "utility-selected-pressed": "#454545",
+        "success": "#176334",
+        "error": "#AB1241",
+        "success-bg": "#D3F5DB",
+        "success-mark": "#176334",
+        "warning-bg": "#FEF4E3",
+        "warning-text": "#594827",
+        "warning-border": "#C5A059",
+        "destructive": "#AB1241",
+        "text-on-destructive": "#FFFFFF",
+        "badge-hot-bg": "#F7EAD1",
+        "badge-hot-text": "#000000",
+        "badge-cold-bg": "#E7E7E7",
+        "badge-cold-text": "#000000",
+        "voice-ring": "#FFC400",
+        "voice-bubble-bg": "#FEF4E3",
+        "voice-bubble-border": "#C5A059"
+      },
+      "highContrast": {
+        "bg-page": "#000000",
+        "bg-surface": "#262626",
+        "bg-muted": "#000000",
+        "scroll-shadow": "rgba(0, 0, 0, 0.78)",
+        "bg-disabled": "#454545",
+        "bg-brand-tint": "#262626",
+        "bg-dark": "#000000",
+        "text-primary": "#FFFFFF",
+        "text-secondary": "#D1D1D1",
+        "text-disabled": "#D1D1D1",
+        "text-on-dark": "#FFFFFF",
+        "text-brand-on-dark": "#F8DA29",
+        "text-brand": "#F8DA29",
+        "icon-brand": "#F8DA29",
+        "icon-neutral": "#D1D1D1",
+        "border-default": "#888888",
+        "border-subtle": "#888888",
+        "border-brand": "#F8DA29",
+        "accent": "#F8DA29",
+        "accent-hover": "#FBE949",
+        "accent-pressed": "#E7BE0B",
+        "accent-text": "#F8DA29",
+        "text-on-accent": "#000000",
+        "action-neutral": "#3D3D3D",
+        "text-on-neutral": "#FFFFFF",
+        "state-current": "#F8DA29",
+        "text-on-current": "#000000",
+        "progress-current": "#F8DA29",
+        "progress-completed": "#262626",
+        "progress-other": "#262626",
+        "state-selected": "#000000",
+        "state-selected-border": "#F8DA29",
+        "state-selected-text": "#F8DA29",
+        "filter-selected-border": "#F8DA29",
+        "option-selected": "#000000",
+        "option-selected-border": "#F8DA29",
+        "option-selected-secondary": "#D1D1D1",
+        "option-check": "#000000",
+        "option-original-bg": "#F8DA29",
+        "option-original-text": "#000000",
+        "step-done": "#262626",
+        "step-done-text": "#D1D1D1",
+        "step-done-mark": "#F8DA29",
+        "step-upcoming": "#262626",
+        "utility-bg": "#000000",
+        "utility-surface": "#262626",
+        "utility-selected": "#F8DA29",
+        "utility-selected-text": "#000000",
+        "utility-pending": "#F8DA29",
+        "utility-pending-text": "#000000",
+        "utility-pending-pressed": "#E7BE0B",
+        "utility-pressed": "#454545",
+        "utility-selected-pressed": "#E7BE0B",
+        "success": "#00E326",
+        "error": "#FF8787",
+        "success-bg": "#00E326",
+        "success-mark": "#000000",
+        "warning-bg": "#262626",
+        "warning-text": "#F8DA29",
+        "warning-border": "#F8DA29",
+        "destructive": "#FF6B6B",
+        "text-on-destructive": "#000000",
+        "badge-hot-bg": "#000000",
+        "badge-hot-text": "#F8DA29",
+        "badge-cold-bg": "#454545",
+        "badge-cold-text": "#FFFFFF",
+        "voice-ring": "#FFFFFF",
+        "voice-bubble-bg": "#262626",
+        "voice-bubble-border": "#F8DA29"
+      }
+    }
+  },
+  "cssBinding": "Token paths use --kebab-case; semantic colors use their existing --name. See tokens.css and colorSystem.ts.",
+  "guides": [
+    {
+      "screen": "method",
+      "ready": false,
+      "id": "method",
+      "text": "매장이용과 포장 중에서 골라 주세요.",
+      "target": "[data-voice-method-options]",
+      "quiet": false,
+      "existing": "#method-question",
+      "narration": [
+        {
+          "text": "매장이용과 포장 중에서 골라 주세요.",
+          "target": "[data-voice-method-options]"
+        }
+      ]
+    },
+    {
+      "screen": "method",
+      "ready": true,
+      "id": "method",
+      "text": "매장이용과 포장 중에서 골라 주세요.",
+      "target": "[data-voice-method-options]",
+      "quiet": false,
+      "existing": "#method-question",
+      "narration": [
+        {
+          "text": "매장이용과 포장 중에서 골라 주세요.",
+          "target": "[data-voice-method-options]"
+        }
+      ]
+    },
+    {
+      "screen": "menu",
+      "ready": false,
+      "id": "menu",
+      "text": "원하는 메뉴를 눌러 주세요.",
+      "target": "[aria-label=\"메뉴 목록\"]",
+      "quiet": false,
+      "existing": "[data-voice-menu-question]",
+      "narration": [
+        {
+          "text": "원하는 메뉴를 눌러 주세요.",
+          "target": "[aria-label=\"메뉴 목록\"]"
+        },
+        {
+          "text": "이름으로 찾으려면 검색하기를 눌러 주세요.",
+          "target": "[data-voice-action=\"search\"]"
+        }
+      ]
+    },
+    {
+      "screen": "menu",
+      "ready": true,
+      "id": "menu",
+      "text": "원하는 메뉴를 눌러 주세요.",
+      "target": "[aria-label=\"메뉴 목록\"]",
+      "quiet": false,
+      "existing": "[data-voice-menu-question]",
+      "narration": [
+        {
+          "text": "원하는 메뉴를 눌러 주세요.",
+          "target": "[aria-label=\"메뉴 목록\"]"
+        },
+        {
+          "text": "이름으로 찾으려면 검색하기를 눌러 주세요.",
+          "target": "[data-voice-action=\"search\"]"
+        }
+      ]
+    },
+    {
+      "screen": "product",
+      "ready": false,
+      "id": "product",
+      "text": "기본 값으로 주문하거나, 직접 하나씩 고를 수 있어요.",
+      "target": "[data-voice-action=\"order-default\"], [data-voice-action=\"order-custom\"]",
+      "quiet": false,
+      "narration": [
+        {
+          "text": "온도만 고르고 담으려면, 기본 값으로 주문을 눌러 주세요.",
+          "target": "[data-voice-action=\"order-default\"]"
+        },
+        {
+          "text": "직접 하나씩 고르려면, 내 입맛에 맞게 주문을 눌러 주세요.",
+          "target": "[data-voice-action=\"order-custom\"]"
+        },
+        {
+          "text": "메뉴로 돌아가려면, 오른쪽 위 메뉴 버튼을 눌러 주세요.",
+          "target": "[data-voice-action=\"menu-back\"]"
+        }
+      ],
+      "tips": [
+        "온도만 고르고 담으려면",
+        "직접 하나씩 고르려면"
+      ],
+      "noBubble": true
+    },
+    {
+      "screen": "product",
+      "ready": true,
+      "id": "product",
+      "text": "기본 값으로 주문하거나, 직접 하나씩 고를 수 있어요.",
+      "target": "[data-voice-action=\"order-default\"], [data-voice-action=\"order-custom\"]",
+      "quiet": false,
+      "narration": [
+        {
+          "text": "온도만 고르고 담으려면, 기본 값으로 주문을 눌러 주세요.",
+          "target": "[data-voice-action=\"order-default\"]"
+        },
+        {
+          "text": "직접 하나씩 고르려면, 내 입맛에 맞게 주문을 눌러 주세요.",
+          "target": "[data-voice-action=\"order-custom\"]"
+        },
+        {
+          "text": "메뉴로 돌아가려면, 오른쪽 위 메뉴 버튼을 눌러 주세요.",
+          "target": "[data-voice-action=\"menu-back\"]"
+        }
+      ],
+      "tips": [
+        "온도만 고르고 담으려면",
+        "직접 하나씩 고르려면"
+      ],
+      "noBubble": true
+    },
+    {
+      "screen": "temperature",
+      "ready": false,
+      "id": "temperature-choose",
+      "text": "따뜻하게 드실지, 차갑게 드실지 골라 주세요.",
+      "target": "[data-voice-choice]:not(:disabled)",
+      "quiet": false,
+      "existing": "[data-voice-heading] > p:first-child, [data-low-option-question] > span:last-child",
+      "narration": [
+        {
+          "text": "따뜻하게 드실지, 차갑게 드실지 골라 주세요.",
+          "target": "[data-voice-choice]:not(:disabled)"
+        }
+      ]
+    },
+    {
+      "screen": "temperature",
+      "ready": true,
+      "id": "temperature-next",
+      "text": "아래 버튼을 눌러 주세요.",
+      "target": "[data-voice-next] button:last-child, [data-low-options-actions] button:last-child",
+      "quiet": false,
+      "nextLabelTarget": "[data-voice-next] button:last-child, [data-low-options-actions] button:last-child",
+      "existing": "[data-voice-heading] > p:first-child, [data-low-option-question] > span:last-child"
+    },
+    {
+      "screen": "size",
+      "ready": false,
+      "id": "size-choose",
+      "text": "원하는 음료 크기를 골라 주세요.",
+      "target": "[data-voice-choice]:not(:disabled)",
+      "quiet": false,
+      "existing": "[data-voice-heading] > p:first-child, [data-low-option-question] > span:last-child",
+      "narration": [
+        {
+          "text": "원하는 음료 크기를 골라 주세요.",
+          "target": "[data-voice-choice]:not(:disabled)"
+        }
+      ]
+    },
+    {
+      "screen": "size",
+      "ready": true,
+      "id": "size-next",
+      "text": "아래 버튼을 눌러 주세요.",
+      "target": "[data-voice-next] button:last-child, [data-low-options-actions] button:last-child",
+      "quiet": false,
+      "nextLabelTarget": "[data-voice-next] button:last-child, [data-low-options-actions] button:last-child",
+      "existing": "[data-voice-heading] > p:first-child, [data-low-option-question] > span:last-child"
+    },
+    {
+      "screen": "caffeine",
+      "ready": false,
+      "id": "caffeine-choose",
+      "text": "카페인 있음과, 카페인을 줄인 디카페인 중에서 골라 주세요.",
+      "target": "[data-voice-choice]:not(:disabled)",
+      "quiet": false,
+      "existing": "[data-voice-heading] > p:first-child, [data-low-option-question] > span:last-child",
+      "narration": [
+        {
+          "text": "카페인 있음과, 카페인을 줄인 디카페인 중에서 골라 주세요.",
+          "target": "[data-voice-choice]:not(:disabled)"
+        }
+      ]
+    },
+    {
+      "screen": "caffeine",
+      "ready": true,
+      "id": "caffeine-next",
+      "text": "아래 버튼을 눌러 주세요.",
+      "target": "[data-voice-next] button:last-child, [data-low-options-actions] button:last-child",
+      "quiet": false,
+      "nextLabelTarget": "[data-voice-next] button:last-child, [data-low-options-actions] button:last-child",
+      "existing": "[data-voice-heading] > p:first-child, [data-low-option-question] > span:last-child"
+    },
+    {
+      "screen": "ice",
+      "ready": false,
+      "id": "ice-choose",
+      "text": "얼음 보통, 얼음 적게, 얼음 없이 중에서 골라 주세요.",
+      "target": "[data-voice-choice]:not(:disabled)",
+      "quiet": false,
+      "existing": "[data-voice-heading] > p:first-child, [data-low-option-question] > span:last-child",
+      "narration": [
+        {
+          "text": "얼음 보통, 얼음 적게, 얼음 없이 중에서 골라 주세요.",
+          "target": "[data-voice-choice]:not(:disabled)"
+        }
+      ]
+    },
+    {
+      "screen": "ice",
+      "ready": true,
+      "id": "ice-next",
+      "text": "아래 버튼을 눌러 주세요.",
+      "target": "[data-voice-next] button:last-child, [data-low-options-actions] button:last-child",
+      "quiet": false,
+      "nextLabelTarget": "[data-voice-next] button:last-child, [data-low-options-actions] button:last-child",
+      "existing": "[data-voice-heading] > p:first-child, [data-low-option-question] > span:last-child"
+    },
+    {
+      "screen": "review",
+      "ready": false,
+      "id": "review",
+      "text": "고른 내용과 수량을 확인한 뒤, 담기 버튼을 눌러 주세요.",
+      "target": "[data-voice-review-options], [data-voice-review-quantity], [data-voice-action=\"review-add\"]",
+      "quiet": false,
+      "existing": "[data-voice-heading] > p:first-child, [data-low-review] h1",
+      "narration": [
+        {
+          "text": "바꾸려면, 각 항목의 바꾸기를 눌러 주세요.",
+          "target": "[data-voice-review-options] button"
+        },
+        {
+          "text": "주문에 담으려면, 담기를 눌러 주세요.",
+          "target": "[data-voice-action=\"review-add\"]"
+        }
+      ]
+    },
+    {
+      "screen": "review",
+      "ready": true,
+      "id": "review",
+      "text": "고른 내용과 수량을 확인한 뒤, 담기 버튼을 눌러 주세요.",
+      "target": "[data-voice-review-options], [data-voice-review-quantity], [data-voice-action=\"review-add\"]",
+      "quiet": false,
+      "existing": "[data-voice-heading] > p:first-child, [data-low-review] h1",
+      "narration": [
+        {
+          "text": "바꾸려면, 각 항목의 바꾸기를 눌러 주세요.",
+          "target": "[data-voice-review-options] button"
+        },
+        {
+          "text": "주문에 담으려면, 담기를 눌러 주세요.",
+          "target": "[data-voice-action=\"review-add\"]"
+        }
+      ]
+    },
+    {
+      "screen": "cart",
+      "ready": false,
+      "id": "cart",
+      "text": "담은 메뉴를 확인하고, 결제 방법 고르기를 눌러 주세요.",
+      "target": "[data-cart-actions], [data-low-cart-actions]",
+      "quiet": false,
+      "existing": "[data-cart-header] h1, [data-low-cart-heading] h1",
+      "narration": [
+        {
+          "text": "더 담으려면, 메뉴 더 고르기를 눌러 주세요.",
+          "target": "[data-voice-action=\"cart-more\"]"
+        },
+        {
+          "text": "주문을 마치려면, 결제 방법 고르기를 눌러 주세요.",
+          "target": "[data-voice-action=\"cart-pay\"]"
+        }
+      ]
+    },
+    {
+      "screen": "cart",
+      "ready": true,
+      "id": "cart",
+      "text": "담은 메뉴를 확인하고, 결제 방법 고르기를 눌러 주세요.",
+      "target": "[data-cart-actions], [data-low-cart-actions]",
+      "quiet": false,
+      "existing": "[data-cart-header] h1, [data-low-cart-heading] h1",
+      "narration": [
+        {
+          "text": "더 담으려면, 메뉴 더 고르기를 눌러 주세요.",
+          "target": "[data-voice-action=\"cart-more\"]"
+        },
+        {
+          "text": "주문을 마치려면, 결제 방법 고르기를 눌러 주세요.",
+          "target": "[data-voice-action=\"cart-pay\"]"
+        }
+      ]
+    },
+    {
+      "screen": "dessert",
+      "ready": false,
+      "id": "dessert",
+      "text": "수량을 확인하고, 담기 버튼을 눌러 주세요.",
+      "target": "[aria-label=\"수량 선택과 담기\"] [role=\"group\"], [data-voice-action=\"dessert-add\"]",
+      "quiet": false,
+      "narration": [
+        {
+          "text": "다른 메뉴를 보려면, 메뉴로 돌아가기를 눌러 주세요.",
+          "target": "[data-voice-action=\"item-back\"]"
+        },
+        {
+          "text": "주문에 담으려면, 담기를 눌러 주세요.",
+          "target": "[data-voice-action=\"dessert-add\"]"
+        }
+      ],
+      "noBubble": true
+    },
+    {
+      "screen": "dessert",
+      "ready": true,
+      "id": "dessert",
+      "text": "수량을 확인하고, 담기 버튼을 눌러 주세요.",
+      "target": "[aria-label=\"수량 선택과 담기\"] [role=\"group\"], [data-voice-action=\"dessert-add\"]",
+      "quiet": false,
+      "narration": [
+        {
+          "text": "다른 메뉴를 보려면, 메뉴로 돌아가기를 눌러 주세요.",
+          "target": "[data-voice-action=\"item-back\"]"
+        },
+        {
+          "text": "주문에 담으려면, 담기를 눌러 주세요.",
+          "target": "[data-voice-action=\"dessert-add\"]"
+        }
+      ],
+      "noBubble": true
+    },
+    {
+      "screen": "cart-empty",
+      "ready": false,
+      "id": "cart-empty",
+      "text": "메뉴 보러 가기를 눌러 메뉴를 담아 주세요.",
+      "target": "[data-voice-action=\"cart-empty-menu\"]",
+      "quiet": false,
+      "noBubble": true,
+      "narration": [
+        {
+          "text": "장바구니가 비어 있어요.",
+          "target": "[data-cart-empty] h2"
+        },
+        {
+          "text": "메뉴를 담으려면, 메뉴 보러 가기를 눌러 주세요.",
+          "target": "[data-voice-action=\"cart-empty-menu\"]"
+        }
+      ]
+    },
+    {
+      "screen": "cart-empty",
+      "ready": true,
+      "id": "cart-empty",
+      "text": "메뉴 보러 가기를 눌러 메뉴를 담아 주세요.",
+      "target": "[data-voice-action=\"cart-empty-menu\"]",
+      "quiet": false,
+      "noBubble": true,
+      "narration": [
+        {
+          "text": "장바구니가 비어 있어요.",
+          "target": "[data-cart-empty] h2"
+        },
+        {
+          "text": "메뉴를 담으려면, 메뉴 보러 가기를 눌러 주세요.",
+          "target": "[data-voice-action=\"cart-empty-menu\"]"
+        }
+      ]
+    }
+  ],
+  "payment": [
+    {
+      "scene": "card",
+      "name": "카드 · 삽입 안내",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "카드를 투입구에 넣어 주세요",
+        "description": "금색 칩이 위로 보이도록 넣어 주세요.",
+        "layout": "insertion",
+        "art": "card",
+        "amountLabel": "결제 금액",
+        "secondary": {
+          "label": "결제 방법 다시 고르기",
+          "to": "method"
+        }
+      },
+      "guide": {
+        "id": "card",
+        "text": "금색 칩이 위로 보이게 카드를 투입구에 넣어 주세요.",
+        "target": ".payment-figure, .payment-amount, .payment-money",
+        "quiet": false,
+        "narration": [
+          {
+            "text": "결제 금액은 카드 그림 아래에 있어요.",
+            "target": ".payment-amount"
+          },
+          {
+            "text": "금색 칩이 위로 보이게 카드를 투입구에 넣어 주세요.",
+            "target": ".payment-figure"
+          }
+        ],
+        "existing": "[data-payment-description]",
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "next",
+          "label": "카드 삽입 감지",
+          "to": "cardReading"
+        }
+      ]
+    },
+    {
+      "scene": "cardReading",
+      "name": "카드 · 읽는 중",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "결제를 진행하고 있어요",
+        "description": "카드를 빼지 말고 잠시 기다려 주세요.",
+        "layout": "processing",
+        "busy": true,
+        "amountLabel": "결제 금액"
+      },
+      "guide": {
+        "id": "cardReading",
+        "text": "카드를 빼지 말고 잠시 기다려 주세요.",
+        "target": ".payment-flow-copy",
+        "quiet": true,
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "next",
+          "label": "카드 읽기 완료",
+          "to": "cardProcessing"
+        },
+        {
+          "id": "unread",
+          "label": "카드 읽기 실패",
+          "to": "unread"
+        }
+      ]
+    },
+    {
+      "scene": "cardProcessing",
+      "name": "카드 · 결제 처리 중",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "결제를 진행하고 있어요",
+        "description": "카드를 빼지 말고 잠시 기다려 주세요.",
+        "layout": "processing",
+        "busy": true,
+        "amountLabel": "결제 금액"
+      },
+      "guide": {
+        "id": "cardProcessing",
+        "text": "카드를 빼지 말고 잠시 기다려 주세요.",
+        "target": ".payment-flow-copy",
+        "quiet": true,
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "next",
+          "label": "승인 성공",
+          "to": "success"
+        },
+        {
+          "id": "declined",
+          "label": "승인 거절",
+          "to": "declined"
+        },
+        {
+          "id": "unknown",
+          "label": "결제 결과 미확인",
+          "to": "unknown"
+        },
+        {
+          "id": "device",
+          "label": "기기 오류 · 미결제",
+          "to": "device"
+        }
+      ]
+    },
+    {
+      "scene": "success",
+      "name": "카드 · 결제 완료 / 카드 회수",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "결제가 완료됐어요",
+        "layout": "complete",
+        "orderNumber": true,
+        "tasks": [
+          "투입구에서 카드를 꺼내 챙겨 주세요."
+        ],
+        "amountLabel": "결제한 금액",
+        "primary": {
+          "label": "카드를 챙겼어요",
+          "to": "receipt"
+        }
+      },
+      "guide": {
+        "id": "success",
+        "text": "카드를 꺼내 챙긴 뒤, 카드를 챙겼어요 버튼을 눌러 주세요.",
+        "target": ".payment-actions",
+        "quiet": false,
+        "narration": [
+          {
+            "text": "결제가 완료됐어요.",
+            "target": ".payment-flow-copy"
+          },
+          {
+            "text": "카드를 꺼내 챙긴 뒤, 카드를 챙겼어요 버튼을 눌러 주세요.",
+            "target": ".payment-actions"
+          }
+        ],
+        "noBubble": true
+      },
+      "simulationEvents": []
+    },
+    {
+      "scene": "declined",
+      "name": "카드 · 승인 거절",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "카드 결제가 거절됐어요",
+        "description": "결제되지 않았어요.\n카드를 꺼낸 뒤 다른 카드로 결제해 주세요.",
+        "art": "error",
+        "amountLabel": "결제할 금액",
+        "primary": {
+          "label": "다른 카드로 결제",
+          "to": "card"
+        },
+        "secondary": {
+          "label": "결제 방법 다시 고르기",
+          "to": "method"
+        }
+      },
+      "guide": {
+        "id": "declined",
+        "text": "다른 카드가 있으면, 카드를 꺼낸 뒤 다른 카드로 결제를 눌러 주세요.",
+        "target": ".payment-flow-copy, .payment-actions",
+        "quiet": false,
+        "narration": [
+          {
+            "text": "카드 결제가 거절됐어요. 결제되지 않았어요.",
+            "target": ".payment-flow-copy"
+          },
+          {
+            "text": "현금이나 모바일로 결제하려면, 결제 방법 다시 고르기를 눌러 주세요.",
+            "target": "[data-voice-action=\"payment-secondary\"]"
+          },
+          {
+            "text": "다른 카드가 있으면, 카드를 꺼낸 뒤 다른 카드로 결제를 눌러 주세요.",
+            "target": "[data-voice-action=\"payment-primary\"]"
+          }
+        ],
+        "existing": ".payment-flow-copy",
+        "always": true,
+        "tips": [
+          "현금·모바일로 결제하려면",
+          "다른 카드가 있으면"
+        ]
+      },
+      "simulationEvents": []
+    },
+    {
+      "scene": "unread",
+      "name": "카드 · 읽기 실패",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "카드를 읽지 못했어요",
+        "description": "카드를 꺼낸 뒤 금색 칩이 위로\n보이도록 다시 넣어 주세요.",
+        "art": "card",
+        "amountLabel": "결제할 금액",
+        "primary": {
+          "label": "다시 시도",
+          "to": "card"
+        },
+        "secondary": {
+          "label": "결제 방법 다시 고르기",
+          "to": "method"
+        }
+      },
+      "guide": {
+        "id": "unread",
+        "text": "이 카드로 다시 하려면, 카드를 꺼낸 뒤 다시 시도를 눌러 주세요.",
+        "target": ".payment-flow-copy, .payment-actions",
+        "quiet": false,
+        "narration": [
+          {
+            "text": "카드를 읽지 못했어요.",
+            "target": ".payment-flow-copy"
+          },
+          {
+            "text": "현금이나 모바일로 결제하려면, 결제 방법 다시 고르기를 눌러 주세요.",
+            "target": "[data-voice-action=\"payment-secondary\"]"
+          },
+          {
+            "text": "이 카드로 다시 하려면, 카드를 꺼낸 뒤 다시 시도를 눌러 주세요.",
+            "target": "[data-voice-action=\"payment-primary\"]"
+          }
+        ],
+        "existing": ".payment-flow-copy",
+        "always": true,
+        "tips": [
+          "현금·모바일로 결제하려면",
+          "이 카드로 다시 하려면"
+        ]
+      },
+      "simulationEvents": []
+    },
+    {
+      "scene": "device",
+      "name": "공통 · 기기 오류 / 미결제",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "기기 문제로 이 결제방법을 쓸 수 없어요",
+        "description": "결제되지 않았어요.\n다른 결제방법을 고르거나 직원을 불러 주세요.",
+        "art": "error",
+        "amountLabel": "결제할 금액",
+        "primary": {
+          "label": "결제 방법 다시 고르기",
+          "to": "method"
+        },
+        "secondary": {
+          "label": "직원 부르기",
+          "to": "staff"
+        }
+      },
+      "guide": {
+        "id": "device",
+        "text": "다른 방법으로 결제하려면, 결제 방법 다시 고르기를 눌러 주세요.",
+        "target": ".payment-flow-copy, .payment-actions",
+        "quiet": false,
+        "narration": [
+          {
+            "text": "기기 문제로 이 결제방법을 쓸 수 없어요. 결제되지 않았어요.",
+            "target": ".payment-flow-copy"
+          },
+          {
+            "text": "도움이 필요하면, 직원 부르기를 눌러 주세요.",
+            "target": "[data-voice-action=\"payment-secondary\"]"
+          },
+          {
+            "text": "다른 방법으로 결제하려면, 결제 방법 다시 고르기를 눌러 주세요.",
+            "target": "[data-voice-action=\"payment-primary\"]"
+          }
+        ],
+        "existing": ".payment-flow-copy",
+        "always": true,
+        "tips": [
+          "도움이 필요하면",
+          "다른 방법으로 결제하려면"
+        ]
+      },
+      "simulationEvents": [
+        {
+          "id": "resolved",
+          "label": "직원 조치 완료 · 결제방법으로",
+          "to": "method"
+        }
+      ]
+    },
+    {
+      "scene": "unknown",
+      "name": "공통 · 결제 결과 미확인",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "결제 여부를 확인하지 못했어요",
+        "description": "다시 결제하지 말고\n직원에게 확인을 요청해 주세요.",
+        "art": "unknown",
+        "amountLabel": "확인할 결제 금액",
+        "primary": {
+          "label": "직원 부르기",
+          "to": "staff"
+        }
+      },
+      "guide": {
+        "id": "unknown",
+        "text": "다시 결제하지 말고, 직원 부르기를 눌러 주세요.",
+        "target": ".payment-flow-copy, .payment-actions",
+        "quiet": false,
+        "narration": [
+          {
+            "text": "결제 여부를 확인하지 못했어요.",
+            "target": ".payment-flow-copy"
+          },
+          {
+            "text": "다시 결제하지 말고, 직원 부르기를 눌러 주세요.",
+            "target": ".payment-actions"
+          }
+        ],
+        "existing": ".payment-flow-copy",
+        "always": true,
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "resolved",
+          "label": "직원 조치 완료 · 결제방법으로",
+          "to": "method"
+        }
+      ]
+    },
+    {
+      "scene": "cashInsert",
+      "name": "현금 · 투입 안내",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": false,
+      "view": {
+        "title": "지폐를 한 장씩 넣어 주세요",
+        "layout": "insertion",
+        "art": "cash",
+        "neutralActions": true,
+        "description": "넣은 금액이 확인되면\n화면의 금액이 바뀌어요.",
+        "secondary": {
+          "label": "결제 방법 다시 고르기",
+          "to": "method"
+        },
+        "moneyLabels": [
+          "결제할 금액",
+          "넣은 금액",
+          "남은 금액"
+        ]
+      },
+      "guide": {
+        "id": "cashInsert",
+        "text": "지폐를 한 장씩 넣어 주세요.",
+        "target": ".payment-figure, .payment-amount, .payment-money",
+        "quiet": false,
+        "narration": [
+          {
+            "text": "결제할 금액은 지폐 그림 아래에 있어요.",
+            "target": ".payment-money"
+          },
+          {
+            "text": "지폐를 한 장씩 넣어 주세요.",
+            "target": ".payment-figure"
+          }
+        ],
+        "existing": ".payment-flow-copy h1",
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "next",
+          "label": "지폐 감지",
+          "to": "cashCounting"
+        }
+      ]
+    },
+    {
+      "scene": "cashCounting",
+      "name": "현금 · 금액 확인 중",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": false,
+      "view": {
+        "title": "넣은 금액을 확인하고 있어요",
+        "layout": "insertion",
+        "art": "cash",
+        "neutralActions": true,
+        "description": "다음 지폐는 잠시 기다렸다가 넣어 주세요.",
+        "singleLine": true,
+        "moneyLabels": [
+          "결제할 금액",
+          "넣은 금액",
+          "남은 금액"
+        ]
+      },
+      "guide": {
+        "id": "cashCounting",
+        "text": "넣은 금액을 확인하고 있어요. 다음 지폐는 잠시 기다렸다가 넣어 주세요.",
+        "target": ".payment-flow-copy",
+        "quiet": true,
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "bill-1000",
+          "label": "1,000원 확인",
+          "to": "cashMore",
+          "bill": 1000
+        },
+        {
+          "id": "bill-5000",
+          "label": "5,000원 확인",
+          "to": "cashMore",
+          "bill": 5000
+        },
+        {
+          "id": "bill-10000",
+          "label": "10,000원 확인",
+          "to": "cashMore",
+          "bill": 10000
+        },
+        {
+          "id": "unread",
+          "label": "지폐 읽기 실패 · 돌아옴",
+          "to": "cashRejected",
+          "rejected": "unread"
+        },
+        {
+          "id": "unsupported",
+          "label": "지원하지 않는 지폐 · 돌아옴",
+          "to": "cashRejected",
+          "rejected": "unsupported"
+        },
+        {
+          "id": "retained",
+          "label": "지폐 회수 미확인",
+          "to": "cashError",
+          "error": "retained"
+        }
+      ]
+    },
+    {
+      "scene": "cashMore",
+      "name": "현금 · 추가 투입",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "남은 금액을 넣어 주세요",
+        "layout": "insertion",
+        "art": "cash",
+        "neutralActions": true,
+        "description": "지폐를 한 장씩 넣어 주세요.\n넣은 금액은 아래에서 확인할 수 있어요.",
+        "secondary": {
+          "label": "결제 취소",
+          "to": "cashCancel"
+        },
+        "moneyLabels": [
+          "결제할 금액",
+          "넣은 금액",
+          "남은 금액"
+        ]
+      },
+      "guide": {
+        "id": "cashMore",
+        "text": "지폐를 한 장씩 넣어 주세요.",
+        "target": ".payment-figure, .payment-amount, .payment-money",
+        "quiet": false,
+        "narration": [
+          {
+            "text": "넣은 금액과 남은 금액은 지폐 그림 아래에 있어요.",
+            "target": ".payment-money"
+          },
+          {
+            "text": "지폐를 한 장씩 넣어 주세요.",
+            "target": ".payment-figure"
+          }
+        ],
+        "existing": "[data-payment-description]",
+        "lineFocus": {
+          "line": 0,
+          "target": "cash-deposited"
+        },
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "next",
+          "label": "다음 지폐 감지",
+          "to": "cashCounting"
+        }
+      ]
+    },
+    {
+      "scene": "cashRejected",
+      "name": "현금 · 돌아온 지폐 안내",
+      "rejected": "unread",
+      "error": "change",
+      "hasDeposit": false,
+      "view": {
+        "title": "지폐를 읽지 못했어요",
+        "layout": "insertion",
+        "art": "cash",
+        "neutralActions": false,
+        "description": "나온 지폐를 펴서 다시 넣거나\n다른 지폐를 넣어 주세요.",
+        "singleLine": false,
+        "primary": {
+          "label": "다시 넣기",
+          "to": "cashInsert"
+        },
+        "secondary": {
+          "label": "결제 방법 다시 고르기",
+          "to": "method"
+        },
+        "moneyLabels": [
+          "결제할 금액",
+          "넣은 금액",
+          "남은 금액"
+        ]
+      },
+      "guide": {
+        "id": "cashRejected",
+        "text": "나온 지폐를 챙기고, 화면의 안내에 따라 다시 넣어 주세요.",
+        "target": ".payment-figure, .payment-amount, .payment-money",
+        "quiet": false,
+        "existing": "[data-payment-description]",
+        "always": true,
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "next",
+          "label": "지폐 감지",
+          "to": "cashCounting"
+        }
+      ]
+    },
+    {
+      "scene": "cashRejected",
+      "name": "현금 · 돌아온 지폐 안내",
+      "rejected": "unread",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "지폐를 읽지 못했어요",
+        "layout": "insertion",
+        "art": "cash",
+        "neutralActions": false,
+        "description": "나온 지폐를 펴서 다시 넣거나\n다른 지폐를 넣어 주세요.",
+        "singleLine": false,
+        "primary": {
+          "label": "다시 넣기",
+          "to": "cashMore"
+        },
+        "secondary": {
+          "label": "결제 취소",
+          "to": "cashCancel"
+        },
+        "moneyLabels": [
+          "결제할 금액",
+          "넣은 금액",
+          "남은 금액"
+        ]
+      },
+      "guide": {
+        "id": "cashRejected",
+        "text": "나온 지폐를 챙기고, 화면의 안내에 따라 다시 넣어 주세요.",
+        "target": ".payment-figure, .payment-amount, .payment-money",
+        "quiet": false,
+        "existing": "[data-payment-description]",
+        "always": true,
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "next",
+          "label": "지폐 감지",
+          "to": "cashCounting"
+        }
+      ]
+    },
+    {
+      "scene": "cashRejected",
+      "name": "현금 · 돌아온 지폐 안내",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": false,
+      "view": {
+        "title": "처리할 수 없는 지폐예요",
+        "layout": "insertion",
+        "art": "cash",
+        "neutralActions": false,
+        "description": "나온 지폐를 챙기고 다른 지폐를 넣어 주세요.",
+        "singleLine": true,
+        "primary": {
+          "label": "다른 지폐 넣기",
+          "to": "cashInsert"
+        },
+        "secondary": {
+          "label": "결제 방법 다시 고르기",
+          "to": "method"
+        },
+        "moneyLabels": [
+          "결제할 금액",
+          "넣은 금액",
+          "남은 금액"
+        ]
+      },
+      "guide": {
+        "id": "cashRejected",
+        "text": "나온 지폐를 챙기고, 화면의 안내에 따라 다시 넣어 주세요.",
+        "target": ".payment-figure, .payment-amount, .payment-money",
+        "quiet": false,
+        "existing": "[data-payment-description]",
+        "always": true,
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "next",
+          "label": "지폐 감지",
+          "to": "cashCounting"
+        }
+      ]
+    },
+    {
+      "scene": "cashRejected",
+      "name": "현금 · 돌아온 지폐 안내",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "처리할 수 없는 지폐예요",
+        "layout": "insertion",
+        "art": "cash",
+        "neutralActions": false,
+        "description": "나온 지폐를 챙기고 다른 지폐를 넣어 주세요.",
+        "singleLine": true,
+        "primary": {
+          "label": "다른 지폐 넣기",
+          "to": "cashMore"
+        },
+        "secondary": {
+          "label": "결제 취소",
+          "to": "cashCancel"
+        },
+        "moneyLabels": [
+          "결제할 금액",
+          "넣은 금액",
+          "남은 금액"
+        ]
+      },
+      "guide": {
+        "id": "cashRejected",
+        "text": "나온 지폐를 챙기고, 화면의 안내에 따라 다시 넣어 주세요.",
+        "target": ".payment-figure, .payment-amount, .payment-money",
+        "quiet": false,
+        "existing": "[data-payment-description]",
+        "always": true,
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "next",
+          "label": "지폐 감지",
+          "to": "cashCounting"
+        }
+      ]
+    },
+    {
+      "scene": "cashComplete",
+      "name": "현금 · 정확한 금액 결제 완료",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "결제가 완료됐어요",
+        "layout": "complete",
+        "orderNumber": true,
+        "tasks": [
+          "영수증이 필요하신지 선택해 주세요."
+        ],
+        "primary": {
+          "label": "영수증 선택",
+          "to": "receipt"
+        },
+        "autoNext": {
+          "seconds": 30,
+          "to": "printingSlip",
+          "text": "후 영수증 없이 진행해요."
+        },
+        "moneyLabels": [
+          "결제한 금액",
+          "넣은 금액",
+          "거스름돈"
+        ]
+      },
+      "guide": {
+        "id": "cashComplete",
+        "text": "영수증 선택 버튼을 눌러 주세요.",
+        "target": ".payment-actions",
+        "quiet": false,
+        "narration": [
+          {
+            "text": "결제가 완료됐어요.",
+            "target": ".payment-flow-copy"
+          },
+          {
+            "text": "영수증 선택 버튼을 눌러 주세요.",
+            "target": ".payment-actions"
+          }
+        ],
+        "noBubble": true
+      },
+      "simulationEvents": []
+    },
+    {
+      "scene": "cashChangePaying",
+      "name": "현금 · 거스름돈 지급 중",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "결제가 완료됐어요",
+        "layout": "complete",
+        "orderNumber": true,
+        "tasks": [
+          "거스름돈이 나오고 있어요."
+        ],
+        "description": "돈이 모두 나온 뒤 챙겨 주세요.",
+        "busy": true,
+        "moneyLabels": [
+          "넣은 금액",
+          "결제한 금액",
+          "받을 거스름돈"
+        ]
+      },
+      "guide": {
+        "id": "cashChangePaying",
+        "text": "결제가 완료됐어요. 거스름돈이 나오고 있어요. 돈이 모두 나올 때까지 기다려 주세요.",
+        "target": ".payment-flow-copy",
+        "quiet": true,
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "next",
+          "label": "거스름돈 지급 완료",
+          "to": "cashChangeReady"
+        },
+        {
+          "id": "cash-error",
+          "label": "돈 지급 문제",
+          "to": "cashError",
+          "error": "change"
+        }
+      ]
+    },
+    {
+      "scene": "cashChangeReady",
+      "name": "현금 · 거스름돈 회수",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "결제가 완료됐어요",
+        "layout": "complete",
+        "orderNumber": true,
+        "tasks": [
+          "거스름돈을 챙겨 주세요."
+        ],
+        "primary": {
+          "label": "거스름돈을 챙겼어요",
+          "to": "receipt"
+        },
+        "moneyLabels": [
+          "넣은 금액",
+          "결제한 금액",
+          "나온 거스름돈"
+        ]
+      },
+      "guide": {
+        "id": "cashChangeReady",
+        "text": "나온 거스름돈을 챙긴 뒤, 거스름돈을 챙겼어요 버튼을 눌러 주세요.",
+        "target": ".payment-actions",
+        "quiet": false,
+        "noBubble": true
+      },
+      "simulationEvents": []
+    },
+    {
+      "scene": "cashCancel",
+      "name": "현금 · 취소 / 돈 반환 중",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "넣은 돈을 돌려드리고 있어요",
+        "description": "돈이 모두 나온 뒤 챙겨 주세요.",
+        "layout": "cashResult",
+        "busy": true,
+        "moneyLabels": [
+          "넣은 금액",
+          "나온 금액",
+          "아직 돌려받을 금액"
+        ]
+      },
+      "guide": {
+        "id": "cashCancel",
+        "text": "넣은 돈을 돌려드리고 있어요. 돈이 모두 나올 때까지 기다려 주세요.",
+        "target": ".payment-flow-copy",
+        "quiet": true,
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "next",
+          "label": "전액 반환 확인",
+          "to": "cashCancelReturned"
+        },
+        {
+          "id": "cash-error",
+          "label": "돈 지급 문제",
+          "to": "cashError",
+          "error": "return"
+        }
+      ]
+    },
+    {
+      "scene": "cashCancelReturned",
+      "name": "현금 · 돌려받은 돈 회수",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "돌려드린 돈을 챙겨 주세요",
+        "description": "결제는 취소됐어요.\n돈을 챙긴 뒤 결제방법을 다시 골라 주세요.",
+        "layout": "cashResult",
+        "art": "cash",
+        "primary": {
+          "label": "돈을 챙겼어요",
+          "to": "method"
+        },
+        "moneyLabels": [
+          "넣은 금액",
+          "나온 금액",
+          "아직 돌려받을 금액"
+        ]
+      },
+      "guide": {
+        "id": "cashCancelReturned",
+        "text": "돌려드린 돈을 챙긴 뒤, 돈을 챙겼어요 버튼을 눌러 주세요.",
+        "target": ".payment-actions",
+        "quiet": false,
+        "narration": [
+          {
+            "text": "결제는 취소됐어요.",
+            "target": ".payment-flow-copy"
+          },
+          {
+            "text": "돌려드린 돈을 챙긴 뒤, 돈을 챙겼어요 버튼을 눌러 주세요.",
+            "target": ".payment-actions"
+          }
+        ],
+        "noBubble": true
+      },
+      "simulationEvents": []
+    },
+    {
+      "scene": "cashError",
+      "name": "현금 · 공통 오류",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "현금 결제를 마무리하지 못했어요",
+        "description": "돈을 더 넣지 말고 직원을 불러 주세요.",
+        "layout": "cashResult",
+        "art": "error",
+        "primary": {
+          "label": "직원 부르기",
+          "to": "staff"
+        },
+        "emphasis": "거스름돈이 모두 나오지 않았어요.",
+        "moneyLabels": [
+          "받을 거스름돈",
+          "나온 금액",
+          "아직 받지 못한 금액"
+        ]
+      },
+      "guide": {
+        "id": "cashError",
+        "text": "화면에서 돈의 상태를 확인해 주세요. 도움이 필요하면 직원 부르기를 눌러 주세요.",
+        "target": ".payment-flow-copy, .payment-actions",
+        "quiet": false,
+        "existing": ".payment-flow-copy",
+        "always": true,
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "resolved",
+          "label": "직원 조치 완료 · 결제방법으로",
+          "to": "method"
+        }
+      ]
+    },
+    {
+      "scene": "cashError",
+      "name": "현금 · 공통 오류",
+      "rejected": "unsupported",
+      "error": "return",
+      "hasDeposit": true,
+      "view": {
+        "title": "현금 결제를 마무리하지 못했어요",
+        "description": "돈을 더 넣지 말고 직원을 불러 주세요.",
+        "layout": "cashResult",
+        "art": "error",
+        "primary": {
+          "label": "직원 부르기",
+          "to": "staff"
+        },
+        "emphasis": "결제를 취소하는 중 넣으신 돈이\n모두 나오지 않았어요.",
+        "moneyLabels": [
+          "넣은 금액",
+          "나온 금액",
+          "아직 받지 못한 금액"
+        ]
+      },
+      "guide": {
+        "id": "cashError",
+        "text": "화면에서 돈의 상태를 확인해 주세요. 도움이 필요하면 직원 부르기를 눌러 주세요.",
+        "target": ".payment-flow-copy, .payment-actions",
+        "quiet": false,
+        "existing": ".payment-flow-copy",
+        "always": true,
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "resolved",
+          "label": "직원 조치 완료 · 결제방법으로",
+          "to": "method"
+        }
+      ]
+    },
+    {
+      "scene": "cashError",
+      "name": "현금 · 공통 오류",
+      "rejected": "unsupported",
+      "error": "unknown",
+      "hasDeposit": true,
+      "view": {
+        "title": "현금 결제를 마무리하지 못했어요",
+        "description": "돈을 더 넣지 말고 직원을 불러 주세요.",
+        "layout": "cashResult",
+        "art": "error",
+        "primary": {
+          "label": "직원 부르기",
+          "to": "staff"
+        },
+        "emphasis": "기기에서 결제가 됐는지\n확인하지 못하고 있어요.",
+        "moneyLabels": [
+          "확인된 투입 금액"
+        ]
+      },
+      "guide": {
+        "id": "cashError",
+        "text": "화면에서 돈의 상태를 확인해 주세요. 도움이 필요하면 직원 부르기를 눌러 주세요.",
+        "target": ".payment-flow-copy, .payment-actions",
+        "quiet": false,
+        "existing": ".payment-flow-copy",
+        "always": true,
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "resolved",
+          "label": "직원 조치 완료 · 결제방법으로",
+          "to": "method"
+        }
+      ]
+    },
+    {
+      "scene": "cashError",
+      "name": "현금 · 공통 오류",
+      "rejected": "unsupported",
+      "error": "retained",
+      "hasDeposit": true,
+      "view": {
+        "title": "현금 결제를 마무리하지 못했어요",
+        "description": "돈을 더 넣지 말고 직원을 불러 주세요.",
+        "layout": "cashResult",
+        "art": "error",
+        "primary": {
+          "label": "직원 부르기",
+          "to": "staff"
+        },
+        "emphasis": "넣으신 지폐가 돌아왔는지\n확인하지 못하고 있어요.",
+        "moneyLabels": [
+          "확인된 투입 금액"
+        ]
+      },
+      "guide": {
+        "id": "cashError",
+        "text": "화면에서 돈의 상태를 확인해 주세요. 도움이 필요하면 직원 부르기를 눌러 주세요.",
+        "target": ".payment-flow-copy, .payment-actions",
+        "quiet": false,
+        "existing": ".payment-flow-copy",
+        "always": true,
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "resolved",
+          "label": "직원 조치 완료 · 결제방법으로",
+          "to": "method"
+        }
+      ]
+    },
+    {
+      "scene": "cashError",
+      "name": "현금 · 공통 오류",
+      "rejected": "unsupported",
+      "error": "returned",
+      "hasDeposit": true,
+      "view": {
+        "title": "현금 결제를 마무리하지 못했어요",
+        "description": "돈을 챙긴 뒤 결제방법을 다시 골라 주세요.",
+        "layout": "cashResult",
+        "art": "error",
+        "primary": {
+          "label": "돈을 챙겼어요 · 결제 방법 다시 고르기",
+          "to": "method"
+        },
+        "emphasis": "결제되지 않았어요.\n넣으신 돈은 모두 나왔어요.",
+        "moneyLabels": [
+          "넣은 금액",
+          "나온 금액",
+          "아직 받지 못한 금액"
+        ]
+      },
+      "guide": {
+        "id": "cashError",
+        "text": "화면에서 돈의 상태를 확인해 주세요. 도움이 필요하면 직원 부르기를 눌러 주세요.",
+        "target": ".payment-flow-copy, .payment-actions",
+        "quiet": false,
+        "existing": ".payment-flow-copy",
+        "always": true,
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "resolved",
+          "label": "직원 조치 완료 · 결제방법으로",
+          "to": "method"
+        }
+      ]
+    },
+    {
+      "scene": "cashError",
+      "name": "현금 · 공통 오류",
+      "rejected": "unsupported",
+      "error": "noDeposit",
+      "hasDeposit": false,
+      "view": {
+        "title": "현금 결제를 마무리하지 못했어요",
+        "description": "다른 결제방법을 선택해 주세요.",
+        "layout": "cashResult",
+        "art": "error",
+        "primary": {
+          "label": "결제 방법 다시 고르기",
+          "to": "method"
+        },
+        "emphasis": "기기 문제로 결제되지 않았어요.",
+        "secondary": {
+          "label": "직원 부르기",
+          "to": "staff"
+        },
+        "moneyLabels": [
+          "기기에 보관된 금액"
+        ]
+      },
+      "guide": {
+        "id": "cashError",
+        "text": "화면에서 돈의 상태를 확인해 주세요. 도움이 필요하면 직원 부르기를 눌러 주세요.",
+        "target": ".payment-flow-copy, .payment-actions",
+        "quiet": false,
+        "existing": ".payment-flow-copy",
+        "always": true,
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "resolved",
+          "label": "직원 조치 완료 · 결제방법으로",
+          "to": "method"
+        }
+      ]
+    },
+    {
+      "scene": "mobileChoice",
+      "name": "모바일 · 방법 선택",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "휴대폰 결제 방법을 골라 주세요",
+        "description": "사용하실 방법을 눌러 주세요.",
+        "layout": "mobile",
+        "choices": [
+          {
+            "label": "바코드·QR 보여주기",
+            "to": "mobileScan"
+          },
+          {
+            "label": "휴대폰 대기",
+            "to": "mobileTap"
+          }
+        ],
+        "amountLabel": "결제 금액",
+        "secondary": {
+          "label": "결제 방법 다시 고르기",
+          "to": "method"
+        }
+      },
+      "guide": {
+        "id": "mobileChoice",
+        "text": "휴대폰을 대서 결제하려면, 휴대폰 대기를 눌러 주세요.",
+        "target": ".payment-choice-grid",
+        "quiet": false,
+        "narration": [
+          {
+            "text": "바코드·QR로 결제하려면, 바코드·QR 보여주기를 눌러 주세요.",
+            "target": "[data-voice-action=\"payment-choice-mobileScan\"]"
+          },
+          {
+            "text": "휴대폰을 대서 결제하려면, 휴대폰 대기를 눌러 주세요.",
+            "target": "[data-voice-action=\"payment-choice-mobileTap\"]"
+          }
+        ],
+        "existing": ".payment-flow-copy h1",
+        "tips": [
+          "바코드·QR로 결제하려면",
+          "휴대폰을 대서 결제하려면"
+        ]
+      },
+      "simulationEvents": []
+    },
+    {
+      "scene": "mobileScan",
+      "name": "모바일 · 바코드·QR 보여주기",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "결제 바코드나 QR코드를 보여주세요",
+        "description": "휴대폰 화면의 코드를 그림에 표시된 곳에 보여주세요.",
+        "singleLine": true,
+        "layout": "insertion",
+        "art": "scan",
+        "amountLabel": "결제 금액",
+        "help": {
+          "label": "결제 코드 여는 방법",
+          "to": "mobileHelp"
+        },
+        "secondary": {
+          "label": "← 이전 · 휴대폰 결제방법",
+          "to": "mobileChoice"
+        }
+      },
+      "guide": {
+        "id": "mobileScan",
+        "text": "휴대폰 화면의 코드를 그림에 표시된 곳에 보여주세요.",
+        "target": ".payment-figure, .payment-amount, .payment-money, .payment-flow-copy, .payment-code-help",
+        "quiet": false,
+        "existing": "[data-payment-description]",
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "next",
+          "label": "코드 인식",
+          "to": "mobileProcessing"
+        }
+      ]
+    },
+    {
+      "scene": "mobileTap",
+      "name": "모바일 · 휴대폰 대기",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "휴대폰을 그림에 표시된 곳에 대 주세요",
+        "description": "휴대폰에서 결제 앱을 열고 인증한 뒤 대 주세요.",
+        "singleLine": true,
+        "layout": "insertion",
+        "art": "tap",
+        "amountLabel": "결제 금액",
+        "secondary": {
+          "label": "← 이전 · 휴대폰 결제방법",
+          "to": "mobileChoice"
+        }
+      },
+      "guide": {
+        "id": "mobileTap",
+        "text": "휴대폰에서 결제 앱을 열고 인증한 뒤, 그림에 표시된 곳에 휴대폰을 대 주세요.",
+        "target": ".payment-figure, .payment-amount, .payment-money",
+        "quiet": false,
+        "existing": "[data-payment-description]",
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "next",
+          "label": "휴대폰 인식",
+          "to": "mobileProcessing"
+        }
+      ]
+    },
+    {
+      "scene": "mobileHelp",
+      "name": "모바일 · 도움말 앱 선택",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "결제 코드 여는 방법",
+        "description": "휴대폰에서 사용하는 앱을 골라 주세요.",
+        "choices": [
+          {
+            "label": "네이버페이",
+            "to": "mobileNaver"
+          },
+          {
+            "label": "카카오페이",
+            "to": "mobileKakao"
+          },
+          {
+            "label": "토스페이",
+            "to": "mobileToss"
+          }
+        ]
+      },
+      "guide": {
+        "id": "mobileHelp",
+        "text": "네이버페이, 카카오페이, 토스페이 중에서 사용하는 앱을 골라 주세요.",
+        "target": "[aria-label=\"결제 코드 도움말 앱\"]",
+        "quiet": false,
+        "noBubble": true
+      },
+      "simulationEvents": []
+    },
+    {
+      "scene": "mobileNaver",
+      "name": "모바일 · 네이버페이 도움말",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "네이버페이 코드 여는 방법",
+        "steps": [
+          "Npay 앱을 열어 주세요.",
+          "현장결제에서 ‘QR결제’를 선택해 주세요.",
+          "결제에 사용할 수단을 확인하고\nQR코드를 화면에 띄워 주세요."
+        ]
+      },
+      "guide": {
+        "id": "mobileNaver",
+        "text": "네이버페이, 카카오페이, 토스페이 중에서 사용하는 앱을 골라 주세요.",
+        "target": "[aria-label=\"결제 코드 도움말 앱\"]",
+        "quiet": false,
+        "noBubble": true
+      },
+      "simulationEvents": []
+    },
+    {
+      "scene": "mobileKakao",
+      "name": "모바일 · 카카오페이 도움말",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "카카오페이 코드 여는 방법",
+        "steps": [
+          "카카오페이 앱을 열어 주세요.",
+          "‘결제’를 선택해 주세요.",
+          "결제에 사용할 수단을 확인하고\n바코드나 QR코드를 화면에 띄워 주세요."
+        ]
+      },
+      "guide": {
+        "id": "mobileKakao",
+        "text": "네이버페이, 카카오페이, 토스페이 중에서 사용하는 앱을 골라 주세요.",
+        "target": "[aria-label=\"결제 코드 도움말 앱\"]",
+        "quiet": false,
+        "noBubble": true
+      },
+      "simulationEvents": []
+    },
+    {
+      "scene": "mobileToss",
+      "name": "모바일 · 토스페이 도움말",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "토스페이 코드 여는 방법",
+        "steps": [
+          "토스 앱을 열어 주세요.",
+          "홈 화면에서 ‘결제’를 눌러 주세요.",
+          "QR코드를 눌러 결제할 카드나 계좌를\n확인해 주세요."
+        ]
+      },
+      "guide": {
+        "id": "mobileToss",
+        "text": "네이버페이, 카카오페이, 토스페이 중에서 사용하는 앱을 골라 주세요.",
+        "target": "[aria-label=\"결제 코드 도움말 앱\"]",
+        "quiet": false,
+        "noBubble": true
+      },
+      "simulationEvents": []
+    },
+    {
+      "scene": "mobileProcessing",
+      "name": "모바일 · 결제 처리 중",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "결제를 진행하고 있어요",
+        "description": "잠시 기다려 주세요.",
+        "layout": "processing",
+        "busy": true,
+        "amountLabel": "결제 금액"
+      },
+      "guide": {
+        "id": "mobileProcessing",
+        "text": "결제를 진행하고 있어요. 잠시 기다려 주세요.",
+        "target": ".payment-flow-copy",
+        "quiet": true,
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "next",
+          "label": "승인 성공",
+          "to": "mobileSuccess"
+        },
+        {
+          "id": "unknown",
+          "label": "결제 결과 미확인",
+          "to": "unknown"
+        },
+        {
+          "id": "device",
+          "label": "기기 오류 · 미결제",
+          "to": "device"
+        }
+      ]
+    },
+    {
+      "scene": "mobileSuccess",
+      "name": "모바일 · 결제 완료",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "결제가 완료됐어요",
+        "layout": "complete",
+        "orderNumber": true,
+        "tasks": [
+          "영수증이 필요하신지 선택해 주세요."
+        ],
+        "amountLabel": "결제한 금액",
+        "primary": {
+          "label": "영수증 선택",
+          "to": "receipt"
+        },
+        "autoNext": {
+          "seconds": 30,
+          "to": "printingSlip",
+          "text": "후 영수증 없이 진행해요."
+        }
+      },
+      "guide": {
+        "id": "mobileSuccess",
+        "text": "영수증 선택 버튼을 눌러 주세요.",
+        "target": ".payment-actions",
+        "quiet": false,
+        "narration": [
+          {
+            "text": "결제가 완료됐어요.",
+            "target": ".payment-flow-copy"
+          },
+          {
+            "text": "영수증 선택 버튼을 눌러 주세요.",
+            "target": ".payment-actions"
+          }
+        ],
+        "noBubble": true
+      },
+      "simulationEvents": []
+    },
+    {
+      "scene": "receipt",
+      "name": "영수증 · 받기 선택",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "영수증을 받으시겠어요?",
+        "description": "주문번호표는 영수증을 받지 않아도 나와요.",
+        "art": "receipt",
+        "primary": {
+          "label": "받기",
+          "to": "printing"
+        },
+        "secondary": {
+          "label": "받지 않기",
+          "to": "printingSlip"
+        },
+        "autoNext": {
+          "seconds": 30,
+          "to": "printingSlip",
+          "text": "후 영수증 없이 진행해요."
+        }
+      },
+      "guide": {
+        "id": "receipt",
+        "text": "영수증이 필요하면, 받기를 눌러 주세요.",
+        "target": ".payment-actions",
+        "quiet": false,
+        "narration": [
+          {
+            "text": "주문번호표는 영수증을 받지 않아도 나와요.",
+            "target": ".payment-flow-copy"
+          },
+          {
+            "text": "영수증이 필요 없으면, 받지 않기를 눌러 주세요.",
+            "target": "[data-voice-action=\"payment-secondary\"]"
+          },
+          {
+            "text": "영수증이 필요하면, 받기를 눌러 주세요.",
+            "target": "[data-voice-action=\"payment-primary\"]"
+          }
+        ],
+        "existing": ".payment-flow-copy h1",
+        "tips": [
+          "영수증이 필요 없으면",
+          "영수증이 필요하면"
+        ]
+      },
+      "simulationEvents": []
+    },
+    {
+      "scene": "printing",
+      "name": "영수증 · 출력 중(주문번호표 함께)",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "영수증을 출력하고 있어요",
+        "description": "주문번호표도 함께 나와요.\n출력이 끝나면 챙겨 주세요.",
+        "art": "receipt",
+        "busy": true
+      },
+      "guide": {
+        "id": "printing",
+        "text": "영수증과 주문번호표를 출력하고 있어요. 잠시 기다려 주세요.",
+        "target": ".payment-flow-copy",
+        "quiet": true,
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "next",
+          "label": "출력 완료",
+          "to": "completeReceipt"
+        },
+        {
+          "id": "receipt-error",
+          "label": "영수증 출력 실패",
+          "to": "receiptError"
+        }
+      ]
+    },
+    {
+      "scene": "receiptError",
+      "name": "영수증 · 출력 실패(주문번호표 함께)",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "결제가 완료됐어요",
+        "layout": "complete",
+        "orderNumber": true,
+        "tasks": [
+          "영수증과 주문번호표를 출력하지 못했어요."
+        ],
+        "description": "직원을 부르면 주문번호표를 대신 드려요.",
+        "primary": {
+          "label": "직원 부르기",
+          "to": "staff"
+        },
+        "secondary": {
+          "label": "번호표 없이 마치기",
+          "to": "home"
+        }
+      },
+      "guide": {
+        "id": "receiptError",
+        "text": "주문번호표가 필요하면, 직원 부르기를 눌러 주세요.",
+        "target": ".payment-flow-copy, .payment-actions",
+        "quiet": false,
+        "narration": [
+          {
+            "text": "결제가 완료됐어요. 주문번호는 화면에 크게 적혀 있어요.",
+            "target": ".payment-order-hero"
+          },
+          {
+            "text": "영수증과 주문번호표를 출력하지 못했어요.",
+            "target": ".payment-tasks"
+          },
+          {
+            "text": "그냥 마치려면, 번호표 없이 마치기를 눌러 주세요.",
+            "target": "[data-voice-action=\"payment-secondary\"]"
+          },
+          {
+            "text": "주문번호표가 필요하면, 직원 부르기를 눌러 주세요.",
+            "target": "[data-voice-action=\"payment-primary\"]"
+          }
+        ],
+        "always": true,
+        "tips": [
+          "그냥 마치려면",
+          "주문번호표가 필요하면"
+        ]
+      },
+      "simulationEvents": []
+    },
+    {
+      "scene": "printingSlip",
+      "name": "주문번호표 · 출력 중",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "주문번호표를 출력하고 있어요",
+        "description": "출력이 끝나면 챙겨 주세요.",
+        "art": "receipt",
+        "busy": true
+      },
+      "guide": {
+        "id": "printingSlip",
+        "text": "주문번호표를 출력하고 있어요. 잠시 기다려 주세요.",
+        "target": ".payment-flow-copy",
+        "quiet": true,
+        "noBubble": true
+      },
+      "simulationEvents": [
+        {
+          "id": "next",
+          "label": "출력 완료",
+          "to": "complete"
+        },
+        {
+          "id": "slip-error",
+          "label": "주문번호표 출력 실패",
+          "to": "slipError"
+        }
+      ]
+    },
+    {
+      "scene": "slipError",
+      "name": "주문번호표 · 출력 실패",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "결제가 완료됐어요",
+        "layout": "complete",
+        "orderNumber": true,
+        "tasks": [
+          "주문번호표를 출력하지 못했어요."
+        ],
+        "description": "직원을 부르면 주문번호표를 대신 드려요.",
+        "primary": {
+          "label": "직원 부르기",
+          "to": "staff"
+        },
+        "secondary": {
+          "label": "번호표 없이 마치기",
+          "to": "home"
+        }
+      },
+      "guide": {
+        "id": "slipError",
+        "text": "주문번호표가 필요하면, 직원 부르기를 눌러 주세요.",
+        "target": ".payment-flow-copy, .payment-actions",
+        "quiet": false,
+        "narration": [
+          {
+            "text": "결제가 완료됐어요. 주문번호는 화면에 크게 적혀 있어요.",
+            "target": ".payment-order-hero"
+          },
+          {
+            "text": "주문번호표를 출력하지 못했어요.",
+            "target": ".payment-tasks"
+          },
+          {
+            "text": "그냥 마치려면, 번호표 없이 마치기를 눌러 주세요.",
+            "target": "[data-voice-action=\"payment-secondary\"]"
+          },
+          {
+            "text": "주문번호표가 필요하면, 직원 부르기를 눌러 주세요.",
+            "target": "[data-voice-action=\"payment-primary\"]"
+          }
+        ],
+        "always": true,
+        "tips": [
+          "그냥 마치려면",
+          "주문번호표가 필요하면"
+        ]
+      },
+      "simulationEvents": []
+    },
+    {
+      "scene": "completeReceipt",
+      "name": "완료 · 주문번호표·영수증 회수",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "결제가 완료됐어요",
+        "layout": "complete",
+        "orderNumber": true,
+        "tasks": [
+          "출력된 주문번호표와 영수증을 챙겨 주세요."
+        ],
+        "description": "이용해 주셔서 감사합니다.",
+        "primary": {
+          "label": "처음으로",
+          "to": "home"
+        },
+        "autoNext": {
+          "seconds": 20,
+          "to": "home",
+          "text": "후 첫 화면으로 돌아가요."
+        }
+      },
+      "guide": {
+        "id": "completeReceipt",
+        "text": "출력된 주문번호표와 영수증을 챙긴 뒤, 처음으로 버튼을 눌러 주세요.",
+        "target": ".payment-actions",
+        "quiet": false,
+        "narration": [
+          {
+            "text": "결제가 완료됐어요.",
+            "target": ".payment-order-hero"
+          },
+          {
+            "text": "출력된 주문번호표와 영수증을 챙긴 뒤, 처음으로 버튼을 눌러 주세요.",
+            "target": ".payment-actions"
+          }
+        ],
+        "noBubble": true
+      },
+      "simulationEvents": []
+    },
+    {
+      "scene": "complete",
+      "name": "완료 · 주문번호표 회수",
+      "rejected": "unsupported",
+      "error": "change",
+      "hasDeposit": true,
+      "view": {
+        "title": "결제가 완료됐어요",
+        "layout": "complete",
+        "orderNumber": true,
+        "tasks": [
+          "출력된 주문번호표를 챙겨 주세요."
+        ],
+        "description": "이용해 주셔서 감사합니다.",
+        "primary": {
+          "label": "처음으로",
+          "to": "home"
+        },
+        "autoNext": {
+          "seconds": 20,
+          "to": "home",
+          "text": "후 첫 화면으로 돌아가요."
+        }
+      },
+      "guide": {
+        "id": "complete",
+        "text": "출력된 주문번호표를 챙긴 뒤, 처음으로 버튼을 눌러 주세요.",
+        "target": ".payment-actions",
+        "quiet": false,
+        "narration": [
+          {
+            "text": "결제가 완료됐어요.",
+            "target": ".payment-order-hero"
+          },
+          {
+            "text": "출력된 주문번호표를 챙긴 뒤, 처음으로 버튼을 눌러 주세요.",
+            "target": ".payment-actions"
+          }
+        ],
+        "noBubble": true
+      },
+      "simulationEvents": []
+    }
+  ],
+  "staff": [
+    {
+      "from": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      },
+      "action": "open",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": "confirm"
+      }
+    },
+    {
+      "from": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      },
+      "action": "close",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      },
+      "action": "request",
+      "to": {
+        "pending": true,
+        "late": false,
+        "dialog": "waiting"
+      }
+    },
+    {
+      "from": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      },
+      "action": "late",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      },
+      "action": "askCancel",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      },
+      "action": "cancel",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      },
+      "action": "reset",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": false,
+        "late": false,
+        "dialog": "confirm"
+      },
+      "action": "open",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": "confirm"
+      }
+    },
+    {
+      "from": {
+        "pending": false,
+        "late": false,
+        "dialog": "confirm"
+      },
+      "action": "close",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": false,
+        "late": false,
+        "dialog": "confirm"
+      },
+      "action": "request",
+      "to": {
+        "pending": true,
+        "late": false,
+        "dialog": "waiting"
+      }
+    },
+    {
+      "from": {
+        "pending": false,
+        "late": false,
+        "dialog": "confirm"
+      },
+      "action": "late",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": "confirm"
+      }
+    },
+    {
+      "from": {
+        "pending": false,
+        "late": false,
+        "dialog": "confirm"
+      },
+      "action": "askCancel",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": "confirm"
+      }
+    },
+    {
+      "from": {
+        "pending": false,
+        "late": false,
+        "dialog": "confirm"
+      },
+      "action": "cancel",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": false,
+        "late": false,
+        "dialog": "confirm"
+      },
+      "action": "reset",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": "waiting"
+      },
+      "action": "open",
+      "to": {
+        "pending": true,
+        "late": false,
+        "dialog": "waiting"
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": "waiting"
+      },
+      "action": "close",
+      "to": {
+        "pending": true,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": "waiting"
+      },
+      "action": "request",
+      "to": {
+        "pending": true,
+        "late": false,
+        "dialog": "waiting"
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": "waiting"
+      },
+      "action": "late",
+      "to": {
+        "pending": true,
+        "late": true,
+        "dialog": "waiting"
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": "waiting"
+      },
+      "action": "askCancel",
+      "to": {
+        "pending": true,
+        "late": false,
+        "dialog": "cancel"
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": "waiting"
+      },
+      "action": "cancel",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": "waiting"
+      },
+      "action": "reset",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": null
+      },
+      "action": "open",
+      "to": {
+        "pending": true,
+        "late": false,
+        "dialog": "waiting"
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": null
+      },
+      "action": "close",
+      "to": {
+        "pending": true,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": null
+      },
+      "action": "request",
+      "to": {
+        "pending": true,
+        "late": false,
+        "dialog": "waiting"
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": null
+      },
+      "action": "late",
+      "to": {
+        "pending": true,
+        "late": true,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": null
+      },
+      "action": "askCancel",
+      "to": {
+        "pending": true,
+        "late": false,
+        "dialog": "cancel"
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": null
+      },
+      "action": "cancel",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": null
+      },
+      "action": "reset",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": "cancel"
+      },
+      "action": "open",
+      "to": {
+        "pending": true,
+        "late": false,
+        "dialog": "waiting"
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": "cancel"
+      },
+      "action": "close",
+      "to": {
+        "pending": true,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": "cancel"
+      },
+      "action": "request",
+      "to": {
+        "pending": true,
+        "late": false,
+        "dialog": "waiting"
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": "cancel"
+      },
+      "action": "late",
+      "to": {
+        "pending": true,
+        "late": true,
+        "dialog": "cancel"
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": "cancel"
+      },
+      "action": "askCancel",
+      "to": {
+        "pending": true,
+        "late": false,
+        "dialog": "cancel"
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": "cancel"
+      },
+      "action": "cancel",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": false,
+        "dialog": "cancel"
+      },
+      "action": "reset",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": true,
+        "dialog": "waiting"
+      },
+      "action": "open",
+      "to": {
+        "pending": true,
+        "late": true,
+        "dialog": "waiting"
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": true,
+        "dialog": "waiting"
+      },
+      "action": "close",
+      "to": {
+        "pending": true,
+        "late": true,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": true,
+        "dialog": "waiting"
+      },
+      "action": "request",
+      "to": {
+        "pending": true,
+        "late": false,
+        "dialog": "waiting"
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": true,
+        "dialog": "waiting"
+      },
+      "action": "late",
+      "to": {
+        "pending": true,
+        "late": true,
+        "dialog": "waiting"
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": true,
+        "dialog": "waiting"
+      },
+      "action": "askCancel",
+      "to": {
+        "pending": true,
+        "late": true,
+        "dialog": "cancel"
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": true,
+        "dialog": "waiting"
+      },
+      "action": "cancel",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": true,
+        "dialog": "waiting"
+      },
+      "action": "reset",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": true,
+        "dialog": null
+      },
+      "action": "open",
+      "to": {
+        "pending": true,
+        "late": true,
+        "dialog": "waiting"
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": true,
+        "dialog": null
+      },
+      "action": "close",
+      "to": {
+        "pending": true,
+        "late": true,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": true,
+        "dialog": null
+      },
+      "action": "request",
+      "to": {
+        "pending": true,
+        "late": false,
+        "dialog": "waiting"
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": true,
+        "dialog": null
+      },
+      "action": "late",
+      "to": {
+        "pending": true,
+        "late": true,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": true,
+        "dialog": null
+      },
+      "action": "askCancel",
+      "to": {
+        "pending": true,
+        "late": true,
+        "dialog": "cancel"
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": true,
+        "dialog": null
+      },
+      "action": "cancel",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      }
+    },
+    {
+      "from": {
+        "pending": true,
+        "late": true,
+        "dialog": null
+      },
+      "action": "reset",
+      "to": {
+        "pending": false,
+        "late": false,
+        "dialog": null
+      }
+    }
+  ],
+  "flowNotes": [
+    "User actions and simulationEvents are separate. Actual device/payment/staff integrations are absent.",
+    "cashCounting bill events have a nominal to value; paymentSessionReducer chooses cashMore/cashComplete/cashChangePaying from the accumulated amount.",
+    "Mobile help is a dialog over mobileScan. Its internal app selection is not a payment-method branch.",
+    "Order option steps depend on the product and temperature. App/orderEntry/selectionSummary are authoritative.",
+    "Text-to-speech timing, clipping, focus trapping, and scroll behavior must also be tested in the web application."
+  ]
+}

@@ -1,0 +1,49 @@
+.utility-study {
+  flex-shrink: 0;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--space-compact);
+  padding: var(--space-md);
+  background: var(--utility-bg);
+  border-top: 2px solid var(--border-default);
+}
+.utility-study-button {
+  position: relative;
+  min-width: 0;
+  height: var(--utility-normal-height);
+  padding: var(--space-md) 6px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-utility);
+  background: var(--utility-surface);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--space-compact);
+  cursor: pointer;
+}
+.utility-study-button[aria-pressed="true"] { background: var(--utility-selected); color: var(--utility-selected-text); }
+.utility-study-label { flex-shrink: 0; display: flex; align-items: flex-start; justify-content: center; gap: 6px; white-space: pre-line; text-align: center; }
+.utility-study-check { flex-shrink: 0; margin-top: 6px; }
+.utility-study-button:focus-visible { outline: 4px solid var(--accent); outline-offset: 4px; }
+.utility-study-button:active { background: var(--utility-pressed); }
+.utility-study-button[aria-pressed="true"]:active { background: var(--utility-selected-pressed); }
+.utility-study--horizontal { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.utility-study--horizontal .utility-study-button { height: var(--utility-horizontal-height); padding: 20px var(--space-compact); flex-direction: row; justify-content: center; gap: var(--space-sm); }
+.utility-study--horizontal .utility-study-label { align-items: center; white-space: nowrap; }
+.utility-study--horizontal .utility-study-check { margin-top: 0; }
+.utility-study--compact { grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 1.35fr) minmax(0, 1fr); }
+.utility-study--compact .utility-study-label { white-space: nowrap; }
+.utility-study--compact .utility-study-button { height: var(--utility-compact-height); padding: var(--space-sm) 6px; gap: var(--space-xs); }
+.utility-study-state-line { position: absolute; bottom: 7px; width: 40px; height: 4px; border-radius: 2px; background: var(--utility-selected-text); }
+
+/* 호출 대기는 설정 토글과 별개의 상태이며 버튼 동작은 대기 안내 열기다. */
+.utility-study-button[data-pending="true"] {
+  background: var(--utility-pending);
+  color: var(--utility-pending-text);
+}
+.utility-study-button[data-pending="true"]:active {
+  background: var(--utility-pending-pressed);
+}
+.utility-study-button:disabled { opacity: .38; cursor: default; }

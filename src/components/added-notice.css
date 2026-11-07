@@ -1,0 +1,10 @@
+/* 담기 알림의 체크 표시. 연한 초록 면 + 초록 체크, 테두리 없음(사용자 2026-10-21 3안). 고대비는 밝은 초록 면 + 검정 체크(A안).
+   면이 커지며 나타난 뒤 체크가 그려진다. 움직임 줄이기 설정이면 바로 다 보인다. */
+.added-notice-mark { align-self:center; flex-shrink:0; width:120px; height:120px; border-radius:50%; background:var(--success-bg); display:flex; align-items:center; justify-content:center; animation:added-notice-pop 240ms ease-out both; }
+.added-notice-check path { stroke-dasharray:25; stroke-dashoffset:25; animation:added-notice-draw 400ms 180ms ease-out forwards; }
+@keyframes added-notice-pop { from { transform:scale(.6); opacity:0; } to { transform:none; opacity:1; } }
+@keyframes added-notice-draw { to { stroke-dashoffset:0; } }
+@media (prefers-reduced-motion: reduce) {
+  .added-notice-mark { animation:none; }
+  .added-notice-check path { animation:none; stroke-dashoffset:0; }
+}

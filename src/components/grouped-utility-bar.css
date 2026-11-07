@@ -1,0 +1,19 @@
+.grouped-utility { width: 100%; flex-shrink: 0; display: grid; background: var(--bg-surface); box-shadow: 0 -6px 20px rgba(0,0,0,.1); position: relative; }
+.grouped-utility button { position: relative; min-width: 0; display: flex; align-items: center; justify-content: center; gap: 16px; padding: 20px 12px; border: 0; border-radius: 0; background: var(--bg-surface); color: var(--text-primary); cursor: pointer; font: inherit; letter-spacing: inherit; }
+.grouped-utility-label { white-space: nowrap; }
+.grouped-utility button[aria-pressed="true"] { background: var(--utility-selected); color: var(--utility-selected-text); }
+.grouped-utility button[data-pending="true"] { background: var(--utility-pending); color: var(--utility-pending-text); }
+.grouped-utility button:active { background: var(--utility-pressed); }
+.grouped-utility button[aria-pressed="true"]:active { background: var(--utility-selected-pressed); }
+.grouped-utility button[data-pending="true"]:active { background: var(--utility-pending-pressed); }
+.grouped-utility button:focus-visible { z-index: 1; outline: 4px solid currentColor; outline-offset: -5px; }
+.grouped-utility-check { position: absolute; top: 12px; right: 14px; }
+.grouped-utility--two-row { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-template-rows: repeat(2, 112px); height: 224px; }
+.grouped-utility--two-row::after { content: ''; position: absolute; inset: 111.25px 0 auto; height: 1.5px; background: var(--border-default); pointer-events: none; }
+.grouped-utility--two-row button:not(:nth-child(3n))::after { content: ''; position: absolute; right: -.75px; top: 20px; bottom: 20px; width: 1.5px; background: var(--border-default); z-index: 1; pointer-events: none; }
+.grouped-utility--low { grid-template-columns: 147fr 139fr 181fr 181fr 215fr 172fr; height: 160px; gap: 0; }
+.grouped-utility--low button { height: 160px; flex-direction: column; gap: 12px; padding: 20px 18px; }
+.grouped-utility--low button:not(:last-child)::after { content: ''; position: absolute; right: -.75px; top: 20px; bottom: 20px; width: 1.5px; background: var(--border-default); z-index: 1; pointer-events: none; }
+[data-color-mode="hc"] .grouped-utility { box-shadow: var(--shadow-action-bar-high-contrast); }
+/* 대기 화면의 ‘처음으로’처럼 지금 쓸 수 없는 칸은 흐리게 두고 누르지 못하게 한다. */
+.grouped-utility button:disabled { opacity: .38; cursor: default; }

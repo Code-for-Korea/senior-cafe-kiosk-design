@@ -1,0 +1,41 @@
+node_modules/
+dist/
+build/
+.cache/
+.env*
+.vite/
+vite.config.*.timestamp-*
+*.tsbuildinfo
+*-debug.log*
+logs/
+*.log
+.claude-replay.*
+.tmp-*
+/.figma/design-context/
+
+# Platform-managed agentplat state, not project source. In the
+# client-initiated single-repo workspace layout (make's `Path: "."` spec) the
+# repo root IS the workspace root, so these land inside this repo rather than
+# beside it.
+/.plugins/
+/.opencode-skills/
+
+# 작업 세션 메모·검토 기록·옛 시안은 이 컴퓨터에만 둔다(GitHub에 올리지 않음).
+# docs/ 는 아래 허용한 파일만 올린다. 검사·빌드가 읽는 파일(color-system.md, design-system/)은 꼭 남긴다.
+/docs/*
+!/docs/FRONTEND-GUIDE.md
+!/docs/VOICE-TTS.md
+!/docs/DESIGN-POLICY.md
+!/docs/color-system.md
+!/docs/tts/
+!/docs/design-system/
+/docs/design-system/*
+!/docs/design-system/README.md
+!/docs/design-system/figma-handoff.json
+!/docs/design-system/verification.json
+!/docs/design-system/review-low-high-contrast.jpg
+/CLAUDE.md
+/AGENTS.md
+/src/imports/
+/scripts/figma-audit/
+.vercel

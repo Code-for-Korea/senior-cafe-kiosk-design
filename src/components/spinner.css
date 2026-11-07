@@ -1,0 +1,11 @@
+/* 도는 표시(Spinner). 결제 처리 중(.payment-spinner)과 같은 토큰을 쓴다. */
+.kiosk-spinner {
+  display: inline-block; flex: none; box-sizing: border-box;
+  width: var(--payment-spinner-size); height: var(--payment-spinner-size);
+  border: var(--payment-spinner-border) solid var(--border-default); border-top-color: var(--accent);
+  border-radius: var(--radius-badge);
+  animation: kiosk-spin var(--motion-payment-spinner) linear infinite;
+}
+.kiosk-spinner.is-small { width: 48px; height: 48px; border-width: 6px; }
+@keyframes kiosk-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .kiosk-spinner { animation: none; } }

@@ -1,0 +1,123 @@
+{
+  "date": "2026-10-12",
+  "baseline": "9aa9a01 (12 screens); first-pass refactor for 5 additional cases",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "canvas": {
+    "width": 1080,
+    "height": 1920
+  },
+  "measuredProperties": [
+    "tag",
+    "leafText",
+    "x",
+    "y",
+    "width",
+    "height",
+    "fontSize",
+    "fontWeight",
+    "lineHeight",
+    "padding",
+    "gap",
+    "borderRadius",
+    "border",
+    "color",
+    "backgroundColor"
+  ],
+  "screens": [
+    {
+      "id": "option",
+      "elementCount": 122,
+      "changedElements": 0
+    },
+    {
+      "id": "option-low",
+      "elementCount": 99,
+      "changedElements": 0
+    },
+    {
+      "id": "review",
+      "elementCount": 122,
+      "changedElements": 0
+    },
+    {
+      "id": "review-low-hc",
+      "elementCount": 108,
+      "changedElements": 0
+    },
+    {
+      "id": "card",
+      "elementCount": 71,
+      "changedElements": 0
+    },
+    {
+      "id": "cash-low",
+      "elementCount": 85,
+      "changedElements": 0
+    },
+    {
+      "id": "mobile",
+      "elementCount": 78,
+      "changedElements": 0
+    },
+    {
+      "id": "product-low",
+      "elementCount": 95,
+      "changedElements": 0
+    },
+    {
+      "id": "menu-low",
+      "elementCount": 120,
+      "changedElements": 0
+    },
+    {
+      "id": "cart-low",
+      "elementCount": 110,
+      "changedElements": 0
+    },
+    {
+      "id": "staff",
+      "elementCount": 126,
+      "changedElements": 0
+    },
+    {
+      "id": "voice-error",
+      "elementCount": 141,
+      "changedElements": 0
+    },
+    {
+      "id": "menu-normal",
+      "elementCount": 127,
+      "changedElements": 0
+    },
+    {
+      "id": "method-normal",
+      "elementCount": 80,
+      "changedElements": 0
+    },
+    {
+      "id": "method-low",
+      "elementCount": 84,
+      "changedElements": 0
+    },
+    {
+      "id": "small-text",
+      "elementCount": 125,
+      "changedElements": 0
+    },
+    {
+      "id": "voice-low-hc",
+      "elementCount": 121,
+      "changedElements": 0
+    }
+  ],
+  "totalMeasuredElements": 1814,
+  "totalChangedElements": 0,
+  "limitation": "Representative states, not every product / payment error / narration timing combination. Browser measurements and source flow tests are complementary.",
+  "interactionChecks": [
+    "Low menu → Americano product → default order → HOT → review → add → cart → select card → insertion guide; 4,700 KRW retained.",
+    "Staff confirm → waiting → close; pending state and original payment screen retained."
+  ]
+}

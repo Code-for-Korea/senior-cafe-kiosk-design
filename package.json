@@ -1,0 +1,36 @@
+{
+  "name": "figma-make-app",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "format": "oxfmt",
+    "check": "node scripts/generate-design-tokens.mjs --check && tsc --noEmit && node scripts/check-color-system.mjs && node scripts/check-cart-option-edit.mjs && node scripts/check-order-entry.mjs && node scripts/check-inactivity.mjs && node scripts/check-voice-guide.mjs && node scripts/check-payment-flow.mjs && node scripts/check-payment-session.mjs && node scripts/export-design-system.mjs --check && node scripts/tts-sheet.mjs --check && node scripts/voice-files.mjs --check",
+    "build:preview": "npm run check && vite build",
+    "tokens:generate": "node scripts/generate-design-tokens.mjs",
+    "design:export": "node scripts/export-design-system.mjs",
+    "voice:list": "node scripts/list-voice-lines.mjs",
+    "voice:tts": "node scripts/tts-sheet.mjs",
+    "voice:files": "node scripts/voice-files.mjs"
+  },
+  "dependencies": {
+    "@tosspayments/tosspayments-sdk": "^2.10.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^6.0.0",
+    "tailwindcss": "^4.0.0",
+    "@tailwindcss/vite": "^4.0.0",
+    "oxfmt": "^0.2.0",
+    "typescript": "^5.7.0",
+    "vite": "^8.0.5"
+  },
+  "packageManager": "pnpm@10.34.3"
+}

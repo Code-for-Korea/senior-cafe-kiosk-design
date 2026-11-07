@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+@import 'tailwindcss';
+@import './design-system/tokens.css';
+
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #FCFCFC;
+}
+
+/* 글줄 규칙 (2026-10-01 사용자) · 단어 안에서 끊지 않고(keep-all), 마지막 줄에 단어 하나만 남기지 않는다(pretty).
+   한 단어가 칸보다 길 때만 억지로 끊는다(anywhere) — 넘치지 않게 */
+#kiosk-canvas {
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+
+/* 입력창 안내 글자 · 기본값(본문 색 50%)은 명암 대비가 3.2:1이라 4.5:1 기준에 못 미친다 */
+input::placeholder {
+  color: var(--text-secondary);
+  opacity: 1;
+}
+
+/* 자판과 찾은 메뉴 · 누르는 동안 색이 바뀌어 눌렸음을 알린다 */
+.kiosk-key:active {
+  background: var(--state-selected) !important;
+  border-color: var(--state-selected-border) !important;
+}
+
+/* 승인된 공통 버튼 눌림: 면만 바꾸고 크기·반경·글자색은 유지한다.
+   disabled는 제외하며 키보드 포커스 외곽선과 독립적으로 동작한다. */
+.kiosk-action-button[data-button-variant="Primary"]:enabled:active {
+  --button-pressed-background: var(--accent-pressed);
+}
+.kiosk-action-button[data-button-variant="Tertiary"]:enabled:active {
+  --button-pressed-background: var(--utility-pressed);
+}
+
+/* 사진과 정보가 함께 잠깐 흐려졌다가 돌아온다. */
+[data-menu-card][data-picking] {
+  animation: menu-card-press var(--motion-menu-press) ease-in-out;
+}
+@keyframes menu-card-press {
+  0%, 100% { opacity: 1; }
+  40% { opacity: var(--opacity-menu-press); }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-menu-card][data-picking] {
+    animation: none;
+    opacity: var(--opacity-menu-press);
+  }
+}
+
+/* 광학 보정은 비교 개선안에서 명시한 아이콘에만 적용한다. */
+svg[data-icon-optical] [stroke] {
+  stroke-width: var(--optical-stroke-width);
+}
+
+/* 투명한 native checkbox의 키보드 포커스는 보이는 사각 컨트롤에 표시한다. */
+.cart-selection-input:focus-visible + .cart-selection-mark {
+  outline: 3px solid var(--accent);
+  outline-offset: 6px;
+}
+
+/* HC에서도 포커스는 모드의 강조색을 쓰고 사진에는 필터를 씌우지 않는다. */
+#kiosk-canvas button:focus-visible, #kiosk-canvas input:focus-visible, #kiosk-canvas [tabindex="0"]:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+/* 기본·큰 글씨 공통 서체. legacy 비교 주소에서만 Noto Sans KR 유지. */
+@font-face {
+  font-family: 'Pretendard Variable';
+  src: url('/assets/fonts/pretendard/PretendardVariable.woff2') format('woff2');
+  font-style: normal;
+  font-weight: 45 920;
+  font-display: swap;
+}
+#kiosk-canvas[data-typography="figma"], #kiosk-canvas[data-typography="figma"] * {
+  font-family: 'Pretendard Variable', sans-serif;
+}
+/* 맥 브라우저의 획 굵게 보정을 끄고 Figma와 같은 굵기로 그린다. 맥 데스크톱 브라우저에서만 작동한다. */
+#kiosk-canvas {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 항상 보이는 실제 스크롤 막대. 16px 공간은 목록 오른쪽 패딩에서 확보한다. */
+.kiosk-scroll-list { scrollbar-gutter: stable; }
+.kiosk-scroll-list::-webkit-scrollbar { width: 16px; }
+.kiosk-scroll-list::-webkit-scrollbar-track { background: transparent; }
+.kiosk-scroll-list::-webkit-scrollbar-thumb {
+  background: var(--text-secondary);
+  border: 4px solid var(--bg-page);
+  border-radius: 9999px;
+  min-height: 64px;
+}

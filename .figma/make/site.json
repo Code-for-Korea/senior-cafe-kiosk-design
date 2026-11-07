@@ -1,0 +1,12 @@
+{
+  "title": "카페 키오스크 UX 시연",
+  "language": "ko",
+  "description": "카페 키오스크 이용방법 선택과 주문 흐름을 확인하는 시연입니다.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

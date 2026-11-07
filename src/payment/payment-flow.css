@@ -1,0 +1,74 @@
+.payment-flow-screen { width:var(--layout-width); height:var(--layout-height); display:flex; flex-direction:column; background:var(--bg-page); color:var(--text-primary); }
+/* 진행바 위치와 아래 간격은 머리가 정한다(진행바는 바깥 여백이 없다). */
+.payment-flow-header { padding:var(--layout-progress-top) var(--layout-page-inset) var(--progress-space-below); flex-shrink:0; }
+.payment-flow-content { flex:1; min-height:0; padding:var(--space-xl) var(--space-page) 36px; display:flex; flex-direction:column; justify-content:center; align-items:stretch; gap:var(--space-lg); }
+.is-low .payment-flow-content { padding:var(--space-lg) var(--space-page) 36px; gap:var(--space-md); }
+.payment-flow-content > * { flex-shrink:0; }
+.payment-flow-copy { text-align:center; display:flex; flex-direction:column; gap:var(--space-sm); }
+.payment-figure { display:flex; flex-direction:column; align-items:center; text-align:center; gap:var(--space-sm); }
+.payment-single-line { white-space:nowrap !important; }
+.payment-flow-screen[data-payment-scene="cashMore"] [data-payment-description] { white-space:pre !important; }
+.payment-amount { display:flex; justify-content:space-between; align-items:center; gap:var(--space-md); padding:var(--payment-amount-padding-y) var(--payment-amount-padding-x); min-height:var(--payment-amount-height); border-radius:var(--radius-amount); background:var(--bg-disabled); }
+.is-low .payment-amount { min-height:var(--payment-low-amount-height); }
+.payment-money { margin:0; padding:var(--space-xs) var(--space-lg); border-radius:var(--radius-amount); background:var(--bg-disabled); }
+.payment-money > div { display:flex; justify-content:space-between; align-items:center; min-height:var(--payment-money-row-height); gap:var(--space-md); }
+.payment-money > div + div { border-top:1px solid var(--border-default); }
+.payment-money dd { margin:0; }
+.payment-money > div:last-child dd { color:var(--accent-text); }
+.payment-money > .is-voice-focus { margin-inline:-16px; padding-inline:var(--space-sm); border-radius:var(--radius-amount); background:var(--option-selected); box-shadow:inset 0 0 0 4px var(--option-selected-border); }
+.payment-actions { display:flex; gap:var(--space-md); margin-top:var(--space-xs); }
+.payment-actions.is-pill { justify-content:flex-start; }
+.payment-order-number { display:flex; flex-direction:column; align-items:center; gap:var(--space-xs); }
+/* 결제 완료: 주문번호를 가장 크게(음료 받을 때 필요), 할 일은 강조 크기 검은 글자로. 2026-10-18 사용자 A안 */
+.payment-order-hero { align-self:center; min-width:560px; display:flex; flex-direction:column; align-items:center; gap:var(--space-xs); padding:var(--space-md) var(--space-xl) var(--space-lg); border-radius:var(--radius-card); background:var(--bg-brand-tint); }
+.payment-order-hero strong { font-size:140px; line-height:1.1; font-weight:700; font-variant-numeric:tabular-nums; }
+.is-low .payment-order-hero strong { font-size:112px; }
+[data-color-mode="hc"] .payment-order-hero { box-shadow:inset 0 0 0 1.5px var(--border-default); }
+.payment-tasks { align-self:center; margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:var(--space-md); counter-reset:task; }
+.payment-tasks li { display:flex; align-items:center; gap:var(--space-sm); }
+.payment-tasks.is-numbered li::before { counter-increment:task; content:counter(task); flex-shrink:0; width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--text-primary); color:var(--bg-page); font-size:32px; font-weight:700; }
+.payment-tasks.is-numbered.is-large li::before { width:64px; height:64px; font-size:36px; }
+.payment-spinner { align-self:center; width:var(--payment-spinner-size); height:var(--payment-spinner-size); border:var(--payment-spinner-border) solid var(--border-default); border-top-color:var(--accent); border-radius:var(--radius-badge); animation:payment-spin var(--motion-payment-spinner) linear infinite; }
+@keyframes payment-spin { to { transform:rotate(360deg); } }
+@media (prefers-reduced-motion:reduce) { .payment-spinner { animation:none; } }
+.payment-choice-grid { display:grid; gap:var(--space-md); margin:var(--space-md) 0; }
+.payment-code-help { display:flex; justify-content:center; }
+.payment-help-steps { padding:var(--space-md) var(--space-md) var(--space-md) var(--space-page); margin:0; background:var(--bg-disabled); border-radius:var(--radius-card); }
+.payment-help-steps li { padding:var(--space-sm) var(--space-xs); white-space:pre-line; }
+.payment-help-steps li::marker { color:var(--accent-text); font-weight:700; }
+.payment-supported { text-align:center; margin:0; color:var(--text-secondary); }
+.payment-symbol { color:var(--icon-neutral); }
+.payment-symbol-success { color:var(--success); }
+.payment-symbol-error { color:var(--error); }
+.payment-art { position:relative; width:360px; height:240px; display:flex; justify-content:center; align-items:center; }
+.payment-device-icon { width:176px; height:176px; background:var(--icon-neutral); mask-size:contain; mask-repeat:no-repeat; mask-position:center; }
+.payment-device-slot { position:absolute; top:12px; left:40px; right:40px; height:28px; border:7px solid var(--icon-neutral); border-radius:var(--radius-device-slot); }
+.payment-device-target { position:absolute; left:calc(50% + 59px); top:calc(50% - 15px); transform:translate(-50%, -50%); color:var(--accent-text); font-size:112px; line-height:1; }
+[data-layout=insertion] .payment-art { height:400px; width:480px; }
+[data-layout=insertion] .payment-device-icon { width:224px; height:224px; }
+[data-layout=insertion] .payment-device-slot { top:56px; }
+.is-low .payment-art { height:160px; }
+.is-low [data-layout=insertion] .payment-art { height:280px; }
+.is-low [data-layout=insertion].is-cash .payment-art { height:320px; }
+/* Leave room for the warning without moving the amount/actions underneath it. */
+.is-low.has-voice-warning [data-layout=insertion].is-cash .payment-art { height:224px; }
+.is-low [data-layout=insertion].is-cash { padding-top:56px; padding-bottom:var(--space-compact); }
+
+.payment-scan-art { width:400px; height:360px; }
+.is-low .payment-scan-art { width:320px; height:280px; }
+/* 카드 넣기 움직임(F-2). 카드가 아래에서 투입구로 올라가 1초 머문 뒤 사라지고 다시. 화살표도 같이 위로.
+   더 깊이 들어가 칩까지 가리는 모습도 해 봤지만 원근 그림이라 어색해 이 모습으로(사용자 2026-10-21). */
+.payment-card-insert { animation:payment-card-insert 3s ease-in-out infinite; }
+.payment-card-arrow { animation:payment-card-arrow 3s ease-in-out infinite; }
+@keyframes payment-card-insert {
+  0% { transform:translateY(var(--card-travel)); opacity:0; }
+  10% { transform:translateY(var(--card-travel)); opacity:1; }
+  50%, 85% { transform:none; opacity:1; }
+  100% { transform:none; opacity:0; }
+}
+@keyframes payment-card-arrow {
+  0%, 10% { transform:translateY(var(--arrow-travel)); }
+  50%, 85% { transform:none; }
+  100% { transform:translateY(var(--arrow-travel)); }
+}
+@media (prefers-reduced-motion:reduce) { .payment-card-insert, .payment-card-arrow { animation:none; } }
