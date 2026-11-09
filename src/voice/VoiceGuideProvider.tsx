@@ -76,6 +76,8 @@ export default function VoiceGuideProvider({ children, staffLate = false, orderS
   // 이번 주문에서 이미 읽은 문장(안내 id + 문장). 같은 화면에 다시 와도 저절로 읽지 않고, 다시 듣기로만 읽는다(사용자 2026-10-19).
   // 대화상자도 같다. 대화상자를 닫고 돌아온 화면도 이미 읽었으니 다시 읽지 않는다(사용자). 대기 화면으로 돌아가면(새 주문) 비운다.
   const heard = useRef(new Set<string>())
+  // 음량을 바꾼 뒤 연속 조작이 멈추면 지금 화면 안내를 새 음량으로 다시 읽어 주는 디바운스 타이머.
+  const volumeReplay = useRef<number | undefined>(undefined)
   // 켤 때 한 번: 다시 듣기·음량 자리를 먼저 말하고 그 자리에 말풍선을 띄운다. 다음 화면이나 아무 곳을 누르면 사라진다.
   const introPending = useRef(false)
   const introGuideId = useRef<string | null>(null)
@@ -222,8 +224,11 @@ export default function VoiceGuideProvider({ children, staffLate = false, orderS
     if (!Number.isFinite(value)) return
     const next = Math.max(0, Math.min(10, Math.round(value)))
     updateVolume(next)
-    // 바뀐 크기는 읽던 문장을 다시 읽어 들려준다. 쉬는 중에는 ‘음량 N’을 말하지 않는다(바뀌는 숫자를 읽지 않음, 사용자 2026-10-28).
+    // 읽는 중이면 재생 중인 소리에 음량이 즉시 반영된다. 쉬는 중에는 소리가 없어 바뀐 걸 못 느끼므로,
+    // 연속 조작이 멈추면 지금 화면 안내를 새 음량으로 한 번 다시 읽어 준다(‘음량 N’ 숫자는 읽지 않음).
     speaker?.setVolume(next / 10)
+    window.clearTimeout(volumeReplay.current)
+    if (status !== 'speaking') volumeReplay.current = window.setTimeout(() => say(), 500)
   }
   const replay = () => { updateWarning('retry'); say() }
   const dismissWarning = () => {

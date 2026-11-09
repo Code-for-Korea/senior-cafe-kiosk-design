@@ -181,6 +181,8 @@ export function createGuideSpeaker(synth: SpeechSynthesis, utterance: () => Spee
   const setVolume = (value: number, idleText?: string) => {
     if (!Number.isFinite(value)) return
     volume = Math.max(0, Math.min(1, value))
+    // 지금 재생 중인 녹음 파일에는 음량을 바로 반영한다(문장을 다시 틀지 않고 즉시 커지고 작아진다).
+    if (activeAudio) activeAudio.volume = volume
     clearTimeout(volumeTimer)
     volumeTimer = setTimeout(() => {
       const resume = current
