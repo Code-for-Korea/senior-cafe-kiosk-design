@@ -69,6 +69,9 @@ const initialOrder: OrderState = {
 
 // 주소 옵션으로 지정한 시작 상태 (개발·캡처용). 옵션이 없으면 평소와 같다.
 const DEV_BAR_H = 56
+// 화면 밖 개발용 막대(결제 시연 바·화면 전환 탭)는 로컬 개발 서버에서 ?preview=dev 일 때만 보인다.
+// 배포(프로덕션) 빌드에서는 import.meta.env.DEV 가 false라 어떤 경우에도 노출되지 않는다.
+const devControls = import.meta.env.DEV && !devParams.previewFrame
 const startMode: OrderMode = devParams.orderMode ?? 'custom'
 const startSize = devParams.sizeCode ?? (startMode === 'default' ? defaultOrder.sizeCode : null)
 const startProduct = menuItems.find((item) => item.id === devParams.productId) ?? null
@@ -202,9 +205,9 @@ export default function App({ lowProductStudy = false }: { lowProductStudy?: boo
     if (staffCall.late && staffCall.dialog === null && lowOrdering) dispatchStaffCall('open')
   }, [staffCall.late]) // eslint-disable-line react-hooks/exhaustive-deps
   const paymentTotal = cartTotals(cartItems).total
-  // 결제 시연 바는 공개 화면에서는 숨기고 ?preview=dev에서만 보인다. 공개 화면에선 높이를 잡지 않는다.
-  const demoBarHeight = paymentActive && !devParams.previewFrame ? 128 : lowProductStudy ? 64 : 0
-  const { scale, designW, designH } = useKioskScale(devParams.capture ? 0 : demoBarHeight + (devParams.previewFrame ? 0 : DEV_BAR_H), devParams.capture)
+  // 결제 시연 바는 로컬 개발(devControls)에서만 보인다. 배포본에선 숨기고 높이도 잡지 않는다.
+  const demoBarHeight = paymentActive && devControls ? 128 : lowProductStudy ? 64 : 0
+  const { scale, designW, designH } = useKioskScale(devParams.capture ? 0 : demoBarHeight + (devControls ? DEV_BAR_H : 0), devParams.capture)
   const MenuView = lowScreen ? LowMenuScreen : MenuScreen
   // 결제 방법을 고르는 동안 담은 메뉴가 품절되면 장바구니로 되돌린다(기획 S50 · M-04). 결제가 시작된 뒤에는 건드리지 않는다.
   const soldOutInCart = cartItems.some(item => soldOutIds.has(item.product.id))
@@ -212,13 +215,13 @@ export default function App({ lowProductStudy = false }: { lowProductStudy?: boo
     if (paymentActive && payment.step === 'method' && soldOutInCart) setScreen('cart')
   }, [paymentActive, payment.step, soldOutInCart])
 
-  // 공개 화면에서는 결제 시연 바를 숨기므로, 기계가 처리/대기하는 단계를 해피패스로 저절로 넘긴다.
+  // 결제 시연 바가 없는 화면(배포본 등)에서는 기계가 처리/대기하는 단계를 해피패스로 저절로 넘긴다.
   // 선택 화면(결제 방법, 휴대폰 결제방법 고르기)과 결과 화면(완료·거절·영수증 고르기)은 넘길 이벤트가 없어
   // 그대로 손님을 기다린다 — 그래서 모바일은 바코드·QR 보여주기 / 휴대폰 대기를 '누른 뒤에만' 자동 진행된다.
   // 버튼이 있는 대기 화면(카드·현금 투입 등)은 '결제 방법 다시 고르기'로 돌아갈 시간을 넉넉히(3.5초) 주고,
   // 그 사이 뒤로 가면 아래 cleanup이 자동 진행을 취소한다. 버튼 없는 '처리 중' 화면은 짧게(1.5초) 넘긴다.
   useEffect(() => {
-    if (!paymentActive || !devParams.previewFrame || payment.step === 'method') return
+    if (!paymentActive || devControls || payment.step === 'method') return
     const events = paymentDemoEvents(payment)
     const happy = events.find(event => event.id === 'next') ?? events.find(event => event.id === 'bill-10000')
     if (!happy) return
@@ -565,10 +568,10 @@ export default function App({ lowProductStudy = false }: { lowProductStudy?: boo
       alignItems: 'center', justifyContent: 'center',
     }}>
       {!devParams.capture && (paymentActive
-        ? (!devParams.previewFrame && <PaymentDemoControls state={payment} onEvent={runPaymentDemo} />)
+        ? (devControls && <PaymentDemoControls state={payment} onEvent={runPaymentDemo} />)
         : lowProductStudy && <div style={{ height: 64, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#fff', color: '#222', width: '100%', fontSize: 16 }}>낮은 화면 · 주문부터 결제까지 이어서 확인할 수 있어요.</div>)}
-      {/* ── 화면 전환 탭 (개발용) · 디자인 화면 밖에 두어 캡처에 찍히지 않는다 ── */}
-      {!devParams.capture && !devParams.previewFrame && (
+      {/* ── 화면 전환 탭 (개발용) · 디자인 화면 밖에 두어 캡처에 찍히지 않는다. 배포본에선 숨긴다 ── */}
+      {!devParams.capture && devControls && (
         <div style={{ height: DEV_BAR_H, flexShrink: 0, display: 'flex', alignItems: 'center', gap: 4 }}>
           {/* 시연: 카페라떼(2번)를 품절로 바꾼다. 담은 뒤 누르면 장바구니의 '주문할 수 없는 메뉴'를 볼 수 있다. */}
           <button aria-pressed={soldOutIds.has('2')} onClick={() => setSoldOutIds(ids => { const next = new Set(ids); if (next.has('2')) next.delete('2'); else next.add('2'); return next })} style={{
