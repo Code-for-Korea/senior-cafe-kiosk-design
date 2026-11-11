@@ -181,9 +181,10 @@ export function createGuideSpeaker(synth: SpeechSynthesis, utterance: () => Spee
   const setVolume = (value: number, idleText?: string) => {
     if (!Number.isFinite(value)) return
     volume = Math.max(0, Math.min(1, value))
-    // 지금 재생 중인 녹음 파일에는 음량을 바로 반영한다(문장을 다시 틀지 않고 즉시 커지고 작아진다).
-    if (activeAudio) activeAudio.volume = volume
     clearTimeout(volumeTimer)
+    // 녹음 파일 재생 중이면 음량을 즉시 반영하고 끝낸다. 문장을 다시 읽지 않아 안내가 리셋·반복되지 않는다.
+    if (activeAudio) { activeAudio.volume = volume; return }
+    // (아래는 브라우저 음성 합성 경로. 거기선 재생 중 음량을 못 바꿔 읽던 문장부터 다시 읽는다.)
     volumeTimer = setTimeout(() => {
       const resume = current
       if (resume) play(resume.lines, resume.report, resume.onLineStart, resume.line, true)
