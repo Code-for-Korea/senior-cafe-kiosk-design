@@ -12,7 +12,7 @@ allow_dirty=false
 
 usage() {
   cat <<'EOF'
-Usage: bin/deploy-github-pages.sh [--allow-dirty]
+Usage: bin/deploy [--allow-dirty]
 
 Builds the Vite app and pushes dist/ to the GitHub Pages branch.
 
