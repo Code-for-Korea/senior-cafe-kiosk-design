@@ -39,3 +39,5 @@ logs/
 /src/imports/
 /scripts/figma-audit/
 .vercel
+/tmp
+!/tmp/.keep
