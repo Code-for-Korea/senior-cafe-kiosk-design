@@ -76,7 +76,7 @@ svg[data-icon-optical] [stroke] {
 /* 기본·큰 글씨 공통 서체. legacy 비교 주소에서만 Noto Sans KR 유지. */
 @font-face {
   font-family: 'Pretendard Variable';
-  src: url('/assets/fonts/pretendard/PretendardVariable.woff2') format('woff2');
+  src: url('../assets/fonts/pretendard/PretendardVariable.woff2') format('woff2');
   font-style: normal;
   font-weight: 45 920;
   font-display: swap;

@@ -1,4 +1,5 @@
 import type { PaymentArt } from './paymentFlow'
+import { assetUrl } from '../assetUrl'
 
 export default function PaymentIllustration({ kind, lowScreen, insertion = false }: { kind: PaymentArt; lowScreen: boolean; insertion?: boolean }) {
   if (kind === 'card' && insertion) {
@@ -6,8 +7,8 @@ export default function PaymentIllustration({ kind, lowScreen, insertion = false
     // 카드가 아래에서 올라가 투입구에 들어가는 움직임 + 위쪽 큰 화살표(기획 S51 ‘큰 화살표·방향·깊이’, 사용자 2026-10-21 B안).
     // 3초마다 계속 반복, 움직임 줄이기 설정이면 꽂힌 모습과 화살표만(payment-flow.css).
     return <div role="img" aria-label="금색 칩이 위로 보이도록 카드를 넣는 그림" data-card-insertion-illustration style={{ position: 'relative', width: lowScreen ? 400 : 600, height: lowScreen ? 400 : 600, flexShrink: 0, ['--card-travel' as string]: lowScreen ? '48px' : '64px', ['--arrow-travel' as string]: lowScreen ? '16px' : '24px' }}>
-      <img src={'/assets/figma-payment/card-insertion/reader-' + variant + '.svg'} alt="" style={{ position: 'absolute', left: lowScreen ? 85 : 100, top: lowScreen ? 30 : 50, maxWidth: 'none' }} />
-      <img className="payment-card-insert" src={'/assets/figma-payment/card-insertion/card-' + variant + '.png'} alt="" width={lowScreen ? 217.989 : 365.641} height={lowScreen ? 192 : 328} style={{ position: 'absolute', left: lowScreen ? 111.005 : 147.183, top: lowScreen ? 140 : 219, maxWidth: 'none' }} />
+      <img src={assetUrl('assets/figma-payment/card-insertion/reader-' + variant + '.svg')} alt="" style={{ position: 'absolute', left: lowScreen ? 85 : 100, top: lowScreen ? 30 : 50, maxWidth: 'none' }} />
+      <img className="payment-card-insert" src={assetUrl('assets/figma-payment/card-insertion/card-' + variant + '.png')} alt="" width={lowScreen ? 217.989 : 365.641} height={lowScreen ? 192 : 328} style={{ position: 'absolute', left: lowScreen ? 111.005 : 147.183, top: lowScreen ? 140 : 219, maxWidth: 'none' }} />
       <svg className="payment-card-arrow" data-card-insertion-arrow aria-hidden="true" viewBox="0 0 72 200" width={lowScreen ? 48 : 72} height={lowScreen ? 134 : 200}
         style={{ position: 'absolute', left: lowScreen ? 340 : 528, top: lowScreen ? 124 : 190 }}>
         <path d="M36 190V16M8 44 36 16l28 28" fill="none" stroke="var(--accent-text)" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" />
@@ -26,7 +27,7 @@ export default function PaymentIllustration({ kind, lowScreen, insertion = false
     const asset = kind === 'cash' ? 'cash' : kind === 'card' ? 'card' : 'mobile'
     return <div className={'payment-art payment-art-' + kind} role="img" aria-label={label}>
       {kind === 'cash' && <span className="payment-device-slot" />}
-      <span className="payment-device-icon" style={{ maskImage: `url(/assets/figma-payment/${asset}-normal.svg)` }} />
+      <span className="payment-device-icon" style={{ maskImage: `url(${assetUrl('assets/figma-payment/' + asset + '-normal.svg')})` }} />
       {kind === 'tap' && <span className="payment-device-target">◎</span>}
     </div>
   }

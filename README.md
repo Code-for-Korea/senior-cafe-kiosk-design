@@ -70,4 +70,10 @@ pnpm build
 
 `main`에 합쳐지면 Vercel이 검사(`pnpm run check`)와 빌드를 거쳐 시연 주소에 자동 게시합니다. 검사가 실패하면 이전 게시본이 남습니다. 빌드 설정은 `vercel.json`에 있습니다. Toss 카드 결제를 배포본에서 쓰려면 Vercel 프로젝트 환경변수에도 `VITE_TOSS_CLIENT_KEY`를 등록해야 합니다(빌드 시 번들에 들어가므로 재배포 필요).
 
+GitHub Pages는 `bin/deploy-github-pages.sh`로 로컬에서 검사·빌드한 뒤 `gh-pages` 브랜치에 게시할 수 있습니다. 저장소 설정에서 Pages의 배포 소스를 **Deploy from a branch**로 선택하고 브랜치를 `gh-pages` / `/ (root)`로 지정하면 프로젝트 주소(`https://<사용자>.github.io/senior-cafe-kiosk-design/`)로 게시됩니다. 기본 스크립트는 `VITE_BASE_PATH=/senior-cafe-kiosk-design/`을 사용하므로 저장소 이름을 바꾸면 `GITHUB_PAGES_BASE_PATH`도 함께 바꿔야 합니다. 테스트 클라이언트 키를 Pages에 넣지 않으면 카드 결제는 시뮬레이터로 동작합니다.
+
+```sh
+bin/deploy-github-pages.sh
+```
+
 작업은 `main`에서 갈라진 짧은 브랜치(예: `fix/…`, `docs/…`, `feat/…`)에서 하고 pull request로 합칩니다. 작업 브랜치를 push하면 Vercel이 그 브랜치 미리보기를 따로 배포합니다.
