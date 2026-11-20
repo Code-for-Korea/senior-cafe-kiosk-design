@@ -2,6 +2,7 @@ import { paymentMethodMetrics as metrics } from '../design-system/metrics'
 import { useType } from '../components/useType'
 import { CheckMark, useSelectionAccent } from '../components/SelectionCard'
 import { colors } from '../tokens'
+import { assetUrl } from '../assetUrl'
 
 export default function PaymentMethodChoice({ method, lowScreen, active, disabled, unavailable, autoFocus, onSelect }: {
   method: { id: string; label: string }
@@ -15,7 +16,7 @@ export default function PaymentMethodChoice({ method, lowScreen, active, disable
 }) {
   const t = useType()
   const accent = useSelectionAccent('gold')
-  const asset = '/assets/figma-payment/' + method.id + (lowScreen ? '-low.svg' : '-normal.svg')
+  const asset = assetUrl('assets/figma-payment/' + method.id + (lowScreen ? '-low.svg' : '-normal.svg'))
   const iconSize = lowScreen ? metrics.lowIconSize : metrics.iconSize
   // NIA 결제 화면: 큰 글씨 이름은 기본 배치 44/600, 낮은 배치 36/600.
   const methodNameStyle = {

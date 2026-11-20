@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+repo_root="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$repo_root"
+
+remote="${GITHUB_PAGES_REMOTE:-origin}"
+branch="${GITHUB_PAGES_BRANCH:-gh-pages}"
+base_path="${GITHUB_PAGES_BASE_PATH:-/senior-cafe-kiosk-design/}"
+allow_dirty=false
+
+usage() {
+  cat <<'EOF'
+Usage: bin/deploy [--allow-dirty]
+
+Builds the Vite app and pushes dist/ to the GitHub Pages branch.
+
+Environment variables:
+  GITHUB_PAGES_REMOTE      Git remote to push (default: origin)
+  GITHUB_PAGES_BRANCH      Pages branch (default: gh-pages)
+  GITHUB_PAGES_BASE_PATH   Vite base path (default: /senior-cafe-kiosk-design/)
+
+The default mode refuses to deploy when the working tree has uncommitted changes.
+EOF
+}
+
+for arg in "$@"; do
+  case "$arg" in
+    --allow-dirty) allow_dirty=true ;;
+    -h|--help) usage; exit 0 ;;
+    *) echo "Unknown argument: $arg" >&2; usage >&2; exit 2 ;;
+  esac
+done
+
+command -v git >/dev/null || { echo "git is required" >&2; exit 1; }
+command -v pnpm >/dev/null || { echo "pnpm is required" >&2; exit 1; }
+git remote get-url "$remote" >/dev/null || { echo "Git remote not found: $remote" >&2; exit 1; }
+
+if [[ "$allow_dirty" != true ]] && [[ -n "$(git status --porcelain)" ]]; then
+  echo "Working tree is not clean. Commit or stash changes, or use --allow-dirty." >&2
+  git status --short >&2
+  exit 1
+fi
+
+case "$base_path" in
+  /*/) ;;
+  *) echo "GITHUB_PAGES_BASE_PATH must start and end with '/': $base_path" >&2; exit 2 ;;
+esac
+
+echo "Building GitHub Pages site with base path: $base_path"
+VITE_BASE_PATH="$base_path" pnpm run build:preview
+
+# Prevent GitHub Pages/Jekyll from ignoring files whose names begin with '_'.
+touch dist/.nojekyll
+
+echo "Publishing dist/ to $remote/$branch"
+git subtree push --prefix dist "$remote" "$branch"
+
+echo "Published. Enable GitHub Pages with source '$branch' in repository settings."

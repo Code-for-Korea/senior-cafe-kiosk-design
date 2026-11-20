@@ -4,6 +4,7 @@
    색은 currentColor 대신 값을 직접 넣는다 (Figma 캡처에서 색이 빠지지 않도록). */
 import { colors, font } from '../tokens'
 import { useId, type CSSProperties } from 'react'
+import { assetUrl } from '../assetUrl'
 
 export type IconName =
   | 'home' | 'search'                 // Figma / KRDS
@@ -48,23 +49,23 @@ const line = (c: string, width: number) => ({
 
 // 원본 프레임/내부 여백을 보존하고 단색 마스크로 기본·고대비 색을 적용한다.
 const systemIcons = {
-  plus: '/assets/figma-system/plus40.svg',
-  minus: '/assets/figma-system/minus40.svg',
-  chevronRight: '/assets/figma-system/chevronRight.svg',
-  close: '/assets/figma-system/close.svg',
-  contrast: '/assets/figma-system/contrast.svg',
-  home: '/assets/figma-system/home.svg',
-  speaker: '/assets/figma-system/speaker.svg',
-  lowScreen: '/assets/figma-system/lowScreen.svg',
-  bell: '/assets/figma-system/bell.svg',
+  plus: assetUrl('assets/figma-system/plus40.svg'),
+  minus: assetUrl('assets/figma-system/minus40.svg'),
+  chevronRight: assetUrl('assets/figma-system/chevronRight.svg'),
+  close: assetUrl('assets/figma-system/close.svg'),
+  contrast: assetUrl('assets/figma-system/contrast.svg'),
+  home: assetUrl('assets/figma-system/home.svg'),
+  speaker: assetUrl('assets/figma-system/speaker.svg'),
+  lowScreen: assetUrl('assets/figma-system/lowScreen.svg'),
+  bell: assetUrl('assets/figma-system/bell.svg'),
 } as const
 
 // dineIn: 사용자 제공 Dine-in.svg의 path/viewBox 유지(편집기 metadata 제외).
 // takeOut: NIA 단색 면·32px 프레임 규칙을 참고한 자체 제작 자산.
 const customIcons = {
-  dineIn: '/assets/custom-icons/dineIn.svg',
-  takeOut: '/assets/custom-icons/takeOut.svg',
-  personalCup: '/assets/custom-icons/personalCup.svg',
+  dineIn: assetUrl('assets/custom-icons/dineIn.svg'),
+  takeOut: assetUrl('assets/custom-icons/takeOut.svg'),
+  personalCup: assetUrl('assets/custom-icons/personalCup.svg'),
 } as const
 const assetIcons = { ...systemIcons, ...customIcons }
 type AssetIconName = keyof typeof assetIcons
@@ -257,7 +258,7 @@ export default function Icon({ name, size = 36, color = colors.textPrimary, opti
   const utilityNames = ['textSize', 'contrast', 'lowScreen', 'speaker', 'bell', 'home', 'chevronRight', 'close', 'search']
   if (optical === 'utility' && utilityNames.includes(name)) {
     const metric = size >= 60 && name !== 'chevronRight' ? 60 : 40
-    const mask = `url("/assets/figma-system/utility-${name}-${metric}.svg") center / contain no-repeat`
+    const mask = `url("${assetUrl(`assets/figma-system/utility-${name}-${metric}.svg`)}") center / contain no-repeat`
     return <span aria-hidden="true" data-icon-name={name} data-icon-optical="utility" data-icon-system="figma" style={{ display: 'inline-block', width: size, height: size, flexShrink: 0, backgroundColor: color, mask, WebkitMask: mask }} />
   }
   const filledChoice = optical === 'choice' ? filledChoices[name] : undefined
