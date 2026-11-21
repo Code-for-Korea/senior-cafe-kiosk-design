@@ -41,3 +41,6 @@ logs/
 .vercel
 /tmp
 !/tmp/.keep
+/.omc/
+/.omo/
+/.tool-versions

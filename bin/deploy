@@ -14,7 +14,9 @@ usage() {
   cat <<'EOF'
 Usage: bin/deploy [--allow-dirty]
 
-Builds the Vite app and pushes dist/ to the GitHub Pages branch.
+Builds the Vite app and publishes dist/ as a single orphan commit to the
+GitHub Pages branch with a force-push. The Pages branch is generated and
+overwritten on every deploy, so do not edit it by hand.
 
 Environment variables:
   GITHUB_PAGES_REMOTE      Git remote to push (default: origin)
@@ -48,13 +50,29 @@ case "$base_path" in
   *) echo "GITHUB_PAGES_BASE_PATH must start and end with '/': $base_path" >&2; exit 2 ;;
 esac
 
+remote_url="$(git remote get-url "$remote")"
+short_sha="$(git rev-parse --short HEAD)"
+
 echo "Building GitHub Pages site with base path: $base_path"
 VITE_BASE_PATH="$base_path" pnpm run build:preview
+test -f dist/index.html || { echo "Build output not found: dist/index.html" >&2; exit 1; }
 
+# dist/ is gitignored, so publish a copy of it from a temporary orphan repository.
+stage="$(mktemp -d "${TMPDIR:-/tmp}/github-pages.XXXXXX")"
+trap 'rm -rf -- "$stage"' EXIT
+
+cp -a dist/. "$stage/"
 # Prevent GitHub Pages/Jekyll from ignoring files whose names begin with '_'.
-touch dist/.nojekyll
+touch "$stage/.nojekyll"
 
-echo "Publishing dist/ to $remote/$branch"
-git subtree push --prefix dist "$remote" "$branch"
+git -C "$stage" init -q -b "$branch"
+git -C "$stage" add --all
+git -C "$stage" \
+  -c user.name="GitHub Pages deploy" \
+  -c user.email="github-pages-deploy@users.noreply.github.com" \
+  commit -qm "Deploy GitHub Pages site from $short_sha"
 
-echo "Published. Enable GitHub Pages with source '$branch' in repository settings."
+echo "Publishing dist/ to: remote=$remote_url branch=$branch base path=$base_path"
+git -C "$stage" push --force "$remote_url" "HEAD:$branch"
+
+echo "Published dist/ as a single orphan commit to '$branch' (force-push). Enable GitHub Pages with source '$branch' in repository settings. The branch is generated; do not edit it by hand."
