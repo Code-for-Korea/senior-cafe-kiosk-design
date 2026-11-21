@@ -1,0 +1,1 @@
+import{J as e,K as t}from"./low-screen-menu-DtdAIfA6.js";var n=e(t(),1),r=(0,n.createContext)(new Set);function i(){let e=(0,n.useContext)(r);return t=>e.has(t)}export{i as n,r as t};

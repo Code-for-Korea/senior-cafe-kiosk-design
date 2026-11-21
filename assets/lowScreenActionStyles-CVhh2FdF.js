@@ -1,0 +1,1 @@
+import{w as e}from"./low-screen-menu-DtdAIfA6.js";var t={buttonHeight:e.order.lowHeight,paddingY:36,paddingX:64};export{t};
