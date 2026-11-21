@@ -41,3 +41,8 @@ logs/
 .vercel
 /tmp
 !/tmp/.keep
+
+# 로컬 AI 에이전트 도구 상태와 개인 도구 버전 설정은 게시하지 않는다.
+/.omc/
+/.omo/
+/.tool-versions
